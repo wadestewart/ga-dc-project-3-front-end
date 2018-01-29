@@ -2,7 +2,7 @@
   "name": "netflix",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wadestewart/github.io/ga-dc-project-3-front-end",
+  "homepage": "https://wadestewart.github.io/ga-dc-project-3-front-end",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
