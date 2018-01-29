@@ -22,7 +22,7 @@ Have 2 front end components: 1. landing page component with header, navbar, sear
 [] Create Movie Model
 [] Create Provider Model
 [] Seed API with database data
-[] Create header component with NavBar (1-home, 2-create)
+[] Create App component with header with NavBar (1-home, 2-create)
 [] Create `create form`
 
 Tuesday:
