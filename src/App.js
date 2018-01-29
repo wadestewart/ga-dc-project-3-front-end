@@ -6,10 +6,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ul>
-          <li><a href="/">Netflix Etc. & Chill</a></li>
-          <li><a href="/create">Create</a></li>
-        </ul>
+        <nav className="pink accent-2">
+                <div className="nav-wrapper">
+                <a href="/" className="brand-logo center">Netflix Etc. & Chill</a>
+                <ul className="right hide-on-med-and-down">
+                <li>
+                    <a href="/create ">Create</a>
+                </li>
+                </ul>
+                </div>
+            </nav>
         <main>
           <form action="/results" method='get'>
             <input type="text" placeholder='Search' className='input'/><button className='button'>Submit</button>
