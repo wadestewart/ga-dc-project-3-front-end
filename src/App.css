@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  text-align: left;
+
 }
 
 .App-logo {
@@ -7,19 +8,18 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.nav {
+  background: lightpink;
+  display: flex;
+  flex-direction: row;
 }
 
-.App-title {
-  font-size: 1.5em;
+.link {
+  text-align: center;
 }
 
-.App-intro {
-  font-size: large;
+li {
+  list-style: none;
 }
 
 @keyframes App-logo-spin {
