@@ -16,3 +16,6 @@ There will also be a header with the app name and a navbar. The navbar will have
 Monday:
 Have back end API created with 2 models (seeded with dummy data) by end of day.
 Have 2 front end components: 1. landing page component with header, navbar, search form. 2. A search results page that reads and renders the data from the back end API.
+
+Tuesday:
+Have MVP completed - high five🙌
