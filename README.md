@@ -27,3 +27,11 @@ Have 2 front end components: 1. landing page component with header, navbar, sear
 
 Tuesday:
 Have MVP completed - high five🙌
+
+### Roles:
+
+We are going to tackle this project using pair programming. We will rotate the pairs throughout the project to ensure that each group member gets exposure to all aspects of front and back end builds.
+
+Back end repo will be maintained by Hammad and Savannah.
+
+Front end repo will be maintained by Wade and Kathy.
