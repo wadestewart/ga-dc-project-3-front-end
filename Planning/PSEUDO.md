@@ -13,18 +13,19 @@ There will also be a header with the app name and a navbar. The navbar will have
 
 ### MVP:
     1. Back End:
-        i. Node, Express, Mongoose
+        [X]i. Node, Express, Mongoose
         ii. 2 Models:
-            a. Movie (Searching for)
-            b. Provider (Netflix, etc.)
-        iii. CRUD functionality
+            [X]a. Movie (Searching for)
+            [X]b. Provider (Netflix, etc.)
+        []iii. CRUD functionality
     2. Front End:
-        i. Handle API requests
-        ii. React Router (CRUD)
-        iii. RESTful routes
+        []i. Handle API requests
+        []ii. React Router (CRUD)
+        []iii. RESTful routes
+        [X]iv. React App
     3. Deployment:
-        i. Heroku back end
-        ii. GitHub pages front end
+        [X]i. Heroku back end
+        [X]ii. GitHub pages front end
 
 We are going to tackle this project using pair programming. We will rotate the pairs throughout the project to ensure that each group member gets exposure to all aspects of front and back end builds.
 
