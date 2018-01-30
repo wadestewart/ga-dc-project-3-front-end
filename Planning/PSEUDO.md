@@ -21,6 +21,10 @@ There will also be a header with the app name and a navbar. The navbar will have
     2. Front End:
         []i. Handle API requests
         []ii. React Router (CRUD)
+            [X]a. Create
+            [X]b. Read
+            []c. Update
+            []d. Delete
         []iii. RESTful routes
         [X]iv. React App
     3. Deployment:
