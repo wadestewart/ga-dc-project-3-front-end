@@ -16,7 +16,6 @@ class Movie extends Component {
         this.setState(newState, _ => console.log(this.state))
     }
 
-    // Maybe move to Movie.js component
     handleUpdate = (event, id) => { //pass in id as parameter here
         // If you move this to a movie component, you can pass a prop
         console.log('A movie was edited: ' + this.state.movieValue)

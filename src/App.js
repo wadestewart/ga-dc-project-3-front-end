@@ -8,11 +8,7 @@ class App extends Component {
       newMovie: {
         movieValue: '',
         yearValue: ''
-      },
-      currentMovie: {
-        movieValue: '',
-        yearValue: ''
-      },
+      }
   }
 
   componentDidMount = () => {
@@ -26,7 +22,6 @@ class App extends Component {
   handleChange = (event) => {
     let newState = {}
     newState[event.target.name] = event.target.value
-    // this.setState(newState, _ => console.log(this.state))
     this.setState(newState)
   }
 
@@ -64,6 +59,7 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <nav className="pink accent-2">
           <div className="nav-wrapper">
             <a href="/" className="brand-logo center">Netflix, Etc. & Chill</a>
@@ -74,8 +70,8 @@ class App extends Component {
               </ul>
           </div>
         </nav>
-        <main>
 
+        <main>
           <form action="/results" method="get">
             <input type="text" placeholder="Search" className="input" />
             <button className="button">Submit</button>
@@ -90,11 +86,10 @@ class App extends Component {
             <input className="center" type="text" name="yearValue" placeholder="Year" value={this.state.yearValue} onChange={this.handleChange} />
             <input className=" center btn waves-effect waves-light pink accent-2 " type="submit" value="Add Movie" />
           </form>
-
         </main>
       </div>
     )
-    }
+  }
 }
 
 export default App
