@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <nav className="pink accent-2">
                 <div className="nav-wrapper">
-                <a href="/" className="brand-logo center">Netflix Etc. & Chill</a>
+                <a href="/" className="brand-logo center">Netflix, Etc. & Chill</a>
                 <ul className="right hide-on-med-and-down">
                 <li>
                     <a href="/create ">Create</a>
