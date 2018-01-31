@@ -19,20 +19,21 @@ class Results extends Component {
     }
 
     render() {
+        let movie = this.props.movies.find(movie => {
+            return movie._id === this.props.movieId
+        })
+ 
+        let results = <div className='center'>
+                        <p className="movie-name">{movie.name}</p>
+                        <p className="movie-year">{movie.year}</p>
+                        {/* do something with movie.providers */}
+                    </div>
         
-        // let results = this.props.movies.map((movie, index) => {
-        //     return (
-        //         <div key={index} className='center'>
-        //             <h4 className="movie-provider">{movie.providers[0]}</h4>
-        //             <p className="movie-name">{movie.name}</p>
-        //             <p className="movie-year">{movie.year}</p>
-        //         </div>
-        //     )
-        // })
         return (
             <div className="resultslist">
-               {/* {results}
-               <Update /> */}
+               {results}
+               <Update />
+               {/* <p>Results component has rendered</p> */}
             </div>
         )
     }

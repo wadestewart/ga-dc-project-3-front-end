@@ -23,13 +23,9 @@ class SearchContainer extends Component {
     searchSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
-        let isMatch = false
         let searchMovieIndex = this.state.movies.findIndex(movie => {
             return movie.name === this.state.query
         })
-
-        // if (searchMovie !== -1) isMatch = !isMatch
-        // console.log(isMatch)
 
         if (searchMovieIndex !== -1) {
             this.setState(prevState => ({
