@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Search extends Component {
     render () {
         return (
-            <div>
+            <div class="center-align col s5 offset-s4">
                 <form onSubmit={this.props.searchSubmit}>
                     <input
                         type='text'

@@ -1,12 +1,12 @@
 import React from 'react'
 
 const Header = () => (
-    <nav className="pink accent-2">
+    <nav className="blue-grey lighten-4 z-depth-3">
         <div className="nav-wrapper">
-            <a href="/" className="brand-logo center">Netflix, Etc. & Chill</a>
+            <a href="/" className="brand-logo red-text z-depth-5 black">Netflix, Etc. & Chill</a>
                 <ul className="right hide-on-med-and-down">
                     <li>
-                        <a href="/create ">Create</a>
+                        <a href="/create">Create</a>
                     </li>
                 </ul>
         </div>

@@ -57,7 +57,7 @@ class SearchContainer extends Component {
 
     render () {
         return (
-            <div>
+            <div className="">
                 {
                     this.state.searched ?
                     <Results 
