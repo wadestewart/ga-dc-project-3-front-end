@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Update extends Component {
+    state = {
+        currentMovie: {
+            movieValue: '',
+            yearValue: '',
+            providerValue: ''
+      }
+    }
 
     handleUpdate = (event, id) => { //pass in id as parameter here
         // If you move this to a movie component, you can pass a prop

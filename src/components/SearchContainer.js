@@ -8,18 +8,9 @@ import Update from './Update'
 class SearchContainer extends Component {
     state = {
         query: '',
-        searched: false,
+        formInput: {},
+        hasSearched: false,
         movies: [],
-        newMovie: {
-          movieValue: '',
-          yearValue: '',
-          providerValue: ''
-        },
-        currentMovie: {
-            movieValue: '',
-            yearValue: '',
-            providerValue: ''
-          }
     }
 
     userSearch = (input) => {

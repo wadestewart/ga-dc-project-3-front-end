@@ -9,25 +9,6 @@ import Update from './components/Update'
 import './App.css'
 
 class App extends Component {
-  state = {
-      movies: [],
-      newMovie: {
-        movieValue: '',
-        yearValue: ''
-      }
-  }
-
-  handleChange = (event) => {
-    let newState = {}
-    newState[event.target.name] = event.target.value
-    this.setState(newState)
-  }
-
-  // componentDidMount () {
-  //   queryMovie()
-  //     .then(res => console.log(res))
-  // }
-
   render() {
     return (
       <Router>
@@ -46,16 +27,3 @@ class App extends Component {
 }
 
 export default App
-
-
-// return (
-//       <div className="App">
-//             <Header />
-//             <main>
-//                 <Switch>
-//                     <Route path="/recipes" render={() => (<RecipeContainer />)} />
-//                     <Route path="/" render={() => (<Home />) } />
-//                 </Switch>
-//             </main>
-//             <Footer />
-//         </div>
