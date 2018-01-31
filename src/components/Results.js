@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Update from './Update'
 
 class Results extends Component {
     // state = {
@@ -26,6 +27,7 @@ class Results extends Component {
         return (
             <div className="resultslist">
                {results}
+               {/* <Update /> */}
             </div>
         )
     }
