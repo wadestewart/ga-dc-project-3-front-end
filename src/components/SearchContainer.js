@@ -11,72 +11,61 @@ class SearchContainer extends Component {
         formInput: {},
         hasSearched: false,
         movies: [],
+        movieMatchId: ''
     }
 
-    userSearch = (input) => {
+    userSearch = (e) => {
         this.setState({
-            query: input.target.value,
-            newMovie: {
-                movieValue: input.target.value,
-                yearValue: input.target.value,
-                providerValue: input.target.value
-              },
-            currentMovie: {
-                movieValue: input.target.value,
-                yearValue: input.target.value,
-                providerValue: input.target.value
-            }
-        }
-      ) 
+            query: e.target.value,
+        }) 
     }
 
     searchSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state.movies)
-        queryMovie()
-            .then((movies) => {
-                // console.log(movies.data)
+        console.log(this.state)
+        let isMatch = false
+        let searchMovieIndex = this.state.movies.findIndex(movie => {
+            return movie.name === this.state.query
+        })
 
-                let matchingMovieIndex = movies.data.findIndex(movie => {
-                    return movie.name === this.state.query 
-                })
+        // if (searchMovie !== -1) isMatch = !isMatch
+        // console.log(isMatch)
 
-                console.log(movies.data[matchingMovieIndex])
-                // this.setState(prevState => ({
-                //     // searched: !prevState.searched,
-                //     // movies: prevState.movies.push(movies.data[matchingMovieIndex])
-                //     movies: prevState.movies.push(movies.data[matchingMovieIndex])
-                // }), _ => console.log(this.state))
-                this.setState(prevState => {
-                    prevState.movies.push(movies.data[matchingMovieIndex])
-                    return {searched: !prevState.searched}
-                }, _ => console.log(this.state))
-            })
+        if (searchMovieIndex !== -1) {
+            this.setState(prevState => ({
+                hasSearched: !prevState.hasSearched,
+                movieMatchId: this.state.movies[searchMovieIndex]._id
+            }), _ => console.log(this.state))
+        }
     }
 
-    // componentDidMount = () => {
-    //     axios.get('https://sheltered-dawn-94402.herokuapp.com/movies')
-    //       .then(response => {
-    //         console.log(response)
-    //         this.setState({ movies: response.data })
-    //     })
-    // }
+    componentDidMount = () => {
+        queryMovie()
+            .then(movies => {
+                this.setState(prevState => ({
+                    movies: movies.data
+                }), _ => console.log(this.state))
+            })
+    }
 
     render () {
         return (
             <div className="">
                 {
-                    this.state.searched ?
-                    <Results 
-                        movies={this.state.movies} /> && 
-                    <Update 
+                    this.state.hasSearched
+                    ? <Results 
+                        movies={this.state.movies}
+                        movieId={this.state.movieMatchId} />
+                    : <div>
+                        <Update 
                         userSearch={this.userSearch}
                         query={this.state.query}
-                        searchSubmit={this.searchSubmit} />:
+                        searchSubmit={this.searchSubmit} />
                     <Search 
                         userSearch={this.userSearch}
                         query={this.state.query}
                         searchSubmit={this.searchSubmit} />
+                    </div>
                 }
             </div>
         )
