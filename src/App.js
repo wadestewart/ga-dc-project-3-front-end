@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
 import SearchContainer from './components/SearchContainer'
-import {queryMovie} from './components/Utility'
+// import {queryMovie} from './components/Utility'
 import Post from './components/Post'
 import Update from './components/Update'
 
@@ -39,7 +39,6 @@ class App extends Component {
         </Switch>
       </main>
       <SearchContainer />
-
       </div>
     </Router>
     )

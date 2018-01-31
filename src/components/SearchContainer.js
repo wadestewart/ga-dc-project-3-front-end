@@ -13,17 +13,23 @@ class SearchContainer extends Component {
         newMovie: {
           movieValue: '',
           yearValue: '',
+          providerValue: ''
+        },
         currentMovie: {
             movieValue: '',
             yearValue: '',
             providerValue: ''
           }
-        }
     }
 
     userSearch = (input) => {
         this.setState({
             query: input.target.value,
+            newMovie: {
+                movieValue: input.target.value,
+                yearValue: input.target.value,
+                providerValue: input.target.value
+              },
             currentMovie: {
                 movieValue: input.target.value,
                 yearValue: input.target.value,
@@ -83,8 +89,6 @@ class SearchContainer extends Component {
                 }
             </div>
         )
-
-
     }
 }
 
