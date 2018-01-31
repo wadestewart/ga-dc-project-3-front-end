@@ -8,7 +8,6 @@ import Update from './Update'
 class SearchContainer extends Component {
     state = {
         query: '',
-        formInput: {},
         hasSearched: false,
         movies: [],
         movieMatchId: ''
@@ -18,6 +17,10 @@ class SearchContainer extends Component {
         this.setState({
             query: e.target.value,
         }) 
+    }
+
+    handleInput = (e, inputObj) => {
+        
     }
 
     searchSubmit = (e) => {
@@ -47,21 +50,17 @@ class SearchContainer extends Component {
     render () {
         return (
             <div className="">
+                <Search 
+                    userSearch={this.userSearch}
+                    query={this.state.query}
+                    searchSubmit={this.searchSubmit}
+                />
                 {
                     this.state.hasSearched
-                    ? <Results 
+                    && <Results 
                         movies={this.state.movies}
-                        movieId={this.state.movieMatchId} />
-                    : <div>
-                        <Update 
-                        userSearch={this.userSearch}
-                        query={this.state.query}
-                        searchSubmit={this.searchSubmit} />
-                    <Search 
-                        userSearch={this.userSearch}
-                        query={this.state.query}
-                        searchSubmit={this.searchSubmit} />
-                    </div>
+                        movieId={this.state.movieMatchId} 
+                        handleInput={this.handleInput}/>
                 }
             </div>
         )

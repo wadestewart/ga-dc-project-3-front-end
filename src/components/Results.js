@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import Update from './Update'
 
 class Results extends Component {
-    // state = {
-    //     movies: [],
-    //     newMovie: {
-    //         movieValue: '',
-    //         yearValue: ''
-    //     }
-    // }
 
     componentDidMount () {
         console.log(this.props)
@@ -32,7 +25,7 @@ class Results extends Component {
         return (
             <div className="resultslist">
                {results}
-               <Update />
+               <Update handleUpdate={this.props.handleUpdate}/>
                {/* <p>Results component has rendered</p> */}
             </div>
         )
