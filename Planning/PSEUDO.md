@@ -61,7 +61,7 @@ Have MVP completed - high five🙌
 
 ### Bonus: 
 
-- Add pop-up message after post/create feature.
+- Add pop-up message after post/create feature with refresh.
 
 
 

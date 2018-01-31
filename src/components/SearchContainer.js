@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {queryMovie} from './Utility'
 import Search from './Search'
 import Results from './Results'
+import Update from './Update'
 // import axios from 'axios'
 
 class SearchContainer extends Component {
@@ -11,16 +12,31 @@ class SearchContainer extends Component {
         movies: [],
         newMovie: {
           movieValue: '',
-          yearValue: ''
-        }
+          yearValue: '',
+          providerValue: ''
+        },
+        currentMovie: {
+            movieValue: '',
+            yearValue: '',
+            providerValue: ''
+          }
     }
 
     userSearch = (input) => {
         this.setState({
-            query: input.target.value
-        })
-        // }, _ => console.log(this.state.query))
-        
+            query: input.target.value,
+            newMovie: {
+                movieValue: input.target.value,
+                yearValue: input.target.value,
+                providerValue: input.target.value
+              },
+            currentMovie: {
+                movieValue: input.target.value,
+                yearValue: input.target.value,
+                providerValue: input.target.value
+            }
+        }
+      ) 
     }
 
     searchSubmit = (e) => {
@@ -61,7 +77,11 @@ class SearchContainer extends Component {
                 {
                     this.state.searched ?
                     <Results 
-                        movies={this.state.movies} /> :
+                        movies={this.state.movies} /> && 
+                    <Update 
+                        userSearch={this.userSearch}
+                        query={this.state.query}
+                        searchSubmit={this.searchSubmit} />:
                     <Search 
                         userSearch={this.userSearch}
                         query={this.state.query}
@@ -69,8 +89,6 @@ class SearchContainer extends Component {
                 }
             </div>
         )
-
-
     }
 }
 

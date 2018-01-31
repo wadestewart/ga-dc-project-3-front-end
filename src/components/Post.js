@@ -6,7 +6,8 @@ class Post extends Component {
         movies: [],
         newMovie: {
           movieValue: '',
-          yearValue: ''
+          yearValue: '',
+          providerValue: ''
         }
     }
 
@@ -21,11 +22,12 @@ class Post extends Component {
         console.log('A year was submitted: ' + this.state.yearValue)
         let sendName = this.state.movieValue
         let sendYear = Number(this.state.yearValue)
+        let sendProvider = this.state.providerValue
         event.preventDefault()
         axios
             .post(
             'https://sheltered-dawn-94402.herokuapp.com/movies', 
-            { name: sendName, year: sendYear, providers: "Netflix, HBO Now" }
+            { name: sendName, year: sendYear, providers: sendProvider }
             )
             .then(response => {
                 console.log('response from POST', response.data)
@@ -40,17 +42,16 @@ class Post extends Component {
     }
 
     render () {
-        return (
-            <div>
+        return <div>
                 <h4 className="center">Add a Movie!</h4>
 
                 <form className="center" action="/movies" method="post" onSubmit={this.handlePost}>
                     <input className="center" type="text" name="movieValue" placeholder="Name" value={this.state.movieValue} onChange={this.handleChange} />
                     <input className="center" type="text" name="yearValue" placeholder="Year" value={this.state.yearValue} onChange={this.handleChange} />
+                    <input className="center" type="text" name="providerValue" placeholder="Provider" value={this.state.providerValue} onChange={this.handleChange} />
                     <input className=" center btn waves-effect waves-light pink accent-2 " type="submit" value="Add Movie" />
                 </form>
             </div>
-        )
     }
 }
 
