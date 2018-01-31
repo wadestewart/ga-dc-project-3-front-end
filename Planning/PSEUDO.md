@@ -33,6 +33,8 @@ There will also be a header with the app name and a navbar. The navbar will have
 
 We are going to tackle this project using pair programming. We will rotate the pairs throughout the project to ensure that each group member gets exposure to all aspects of front and back end builds.
 
+### Roles:
+
 Back end repo will be maintained by Hammad and Savannah.
 
 Front end repo will be maintained by Wade and Kathy.
@@ -56,6 +58,10 @@ Have MVP completed - high five🙌
 
 #### Tuesday To do List
 [] Create `create form`
-### Roles:
+
+### Bonus: 
+
+- Add pop-up message after post/create feature.
+
 
 
