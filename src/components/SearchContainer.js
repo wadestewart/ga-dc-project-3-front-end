@@ -4,7 +4,7 @@ import Search from './Search'
 import Results from './Results'
 // import axios from 'axios'
 
-class ResultsContainer extends Component {
+class SearchContainer extends Component {
     state = {
         query: '',
         searched: false,
@@ -74,4 +74,4 @@ class ResultsContainer extends Component {
     }
 }
 
-export default ResultsContainer
+export default SearchContainer
