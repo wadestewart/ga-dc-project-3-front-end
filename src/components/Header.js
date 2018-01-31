@@ -6,7 +6,7 @@ const Header = () => (
             <a href="/" className="brand-logo red-text z-depth-5 black">Netflix, Etc. & Chill</a>
                 <ul className="right hide-on-med-and-down">
                     <li>
-                        <a href="/create">Create</a>
+                        <a class="red" href="/create">Create</a>
                     </li>
                 </ul>
         </div>
