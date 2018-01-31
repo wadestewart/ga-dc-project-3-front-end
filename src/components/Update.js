@@ -46,3 +46,5 @@ class Movie extends Component {
         )
     }
 }
+
+export default Update
