@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import {
-    queryMovie,
-    updateMovie,
-    createMovie,
-    deleteMovie
-} from './Utility'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { queryMovie, updateMovie, createMovie, deleteMovie } from './Utility'
 import Search from './Search'
 import Results from './Results'
 import Update from './Update'
 import Post from './Post'
+import Delete from './Delete'
+import Header from './Header'
 
 class SearchContainer extends Component {
     state = {
@@ -18,13 +16,13 @@ class SearchContainer extends Component {
         movieMatchId: ''
     }
 
-    userSearch = (e) => {
+    userSearch = e => {
         this.setState({
-            query: e.target.value,
-        }) 
+            query: e.target.value
+        })
     }
 
-    searchSubmit = (e) => {
+    searchSubmit = e => {
         e.preventDefault()
         console.log(this.state)
         let searchMovieIndex = this.state.movies.findIndex(movie => {
@@ -32,32 +30,40 @@ class SearchContainer extends Component {
         })
 
         if (searchMovieIndex !== -1) {
-            this.setState(prevState => ({
-                hasSearched: !prevState.hasSearched,
-                movieMatchId: this.state.movies[searchMovieIndex]._id
-            }), _ => console.log(this.state))
+            this.setState(
+                prevState => ({
+                    hasSearched: !prevState.hasSearched,
+                    movieMatchId: this.state.movies[searchMovieIndex]._id
+                }),
+                _ => console.log(this.state)
+            )
         }
     }
 
     updateSubmit = (e, inputObj) => {
         e.preventDefault()
         // console.log(inputObj)
-        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        inputObj.providersInput = inputObj.providersInput
+            .split(',')
+            .map(provider => provider.trim())
         // console.log(inputObj)
-        updateMovie(inputObj)
-            .then(movies => {
-                this.setState(prevState => ({
+        updateMovie(inputObj).then(movies => {
+            this.setState(
+                prevState => ({
                     movies: movies.data
-                }), _ => console.log(this.state))
-            })
+                }),
+                _ => console.log(this.state)
+            )
+        })
     }
 
     postSubmit = (e, inputObj) => {
         e.preventDefault()
-        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        inputObj.providersInput = inputObj.providersInput
+            .split(',')
+            .map(provider => provider.trim())
         console.log(inputObj)
-        createMovie(inputObj)
-        .then(movies => {
+        createMovie(inputObj).then(movies => {
             this.setState(prevState => ({
                 movies: movies.data
             }))
@@ -66,8 +72,7 @@ class SearchContainer extends Component {
 
     deleteSubmit = (e, inputObj) => {
         e.preventDefault()
-        deleteMovie(inputObj)
-        .then(movies => {
+        deleteMovie(inputObj).then(movies => {
             this.setState(prevState => ({
                 movies: movies.data
             }))
@@ -75,32 +80,64 @@ class SearchContainer extends Component {
     }
 
     componentDidMount = () => {
-        queryMovie()
-            .then(movies => {
-                this.setState(prevState => ({
+        queryMovie().then(movies => {
+            this.setState(
+                prevState => ({
                     movies: movies.data
-                }), _ => console.log(this.state))
-            })
+                }),
+                _ => console.log(this.state)
+            )
+        })
     }
 
-    render () {
+    render() {
         return (
-            <div className="">
-                <Search 
-                    userSearch={this.userSearch}
-                    query={this.state.query}
-                    searchSubmit={this.searchSubmit}
-                />
-                {
-                    this.state.hasSearched
-                    && <Results 
-                        movies={this.state.movies}
-                        movieId={this.state.movieMatchId} 
-                        updateSubmit={this.updateSubmit}
-                        deleteSubmit={this.deleteSubmit}/>
-                }
-                <Post postSubmit={this.postSubmit}/>
-            </div>
+            <Router>
+                <div className="">
+                    <Header />
+                    <main>
+                        <Switch>
+                            <Route
+                                path="/"
+                                render={props => this.state.hasSearched 
+                                      ? <Results
+                                        {...props}
+                                        movies={this.state.movies}
+                                        movieId={
+                                            this.state.movieMatchId
+                                        }
+                                        updateSubmit={this.updateSubmit}
+                                        deleteSubmit={this.deleteSubmit} />
+                                      : <Search
+                                          {...props}
+                                          userSearch={this.userSearch}
+                                          query={this.state.query}
+                                          searchSubmit={this.searchSubmit} />
+
+                                }
+                            />
+                            <Route
+                                c   path="/movies/Post"
+                                render={() => {
+                                    console.log('*****rendering the thing')
+                                    return <Post />
+                                }}
+                            />
+                            <Route
+                                path="/movies/:id"
+                                render={() =>
+                                    <Results /> && <Update /> && <Delete />
+                                }
+                            />
+                            {/* <Route
+                      path='/movies' 
+                      render={() => ({movies})} 
+                    /> */}
+                            {/* <Post postSubmit={this.postSubmit}/> */}
+                        </Switch>
+                    </main>
+                </div> 
+            </Router>
         )
     }
 }
