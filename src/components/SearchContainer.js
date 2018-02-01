@@ -7,7 +7,6 @@ import {
 } from './Utility'
 import Search from './Search'
 import Results from './Results'
-import Update from './Update'
 import Post from './Post'
 
 class SearchContainer extends Component {

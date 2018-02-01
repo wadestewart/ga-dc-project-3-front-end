@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 
 class Update extends Component {
     state = {
@@ -16,17 +15,19 @@ class Update extends Component {
     }
 
     render() {
-        return (<div class="container">
-                <h4 className="center">Edit a Movie!</h4>
-                <form className="center" action="`/movies/${_id}`" method="put" onSubmit={(e) => this.props.updateSubmit(e, this.state)}>
-                    {/* cross-reference comment below with comment above in axios .put */}
-                    {/* <form className="center" action='`/movies/${_id}`' method="put" onSubmit={(e) => this.handleUpdate(e, this.props.id)}> */}
-                    <input className="center" type="text" name="name" placeholder="Name"  onChange={e => this.handleInput(e, 'nameInput')} />
-                    <input className="center" type="text" name="year" placeholder="Year" onChange={e => this.handleInput(e, 'yearInput')} />
-                    <input className="center" type="text" name="providers" placeholder="Provider" onChange={e => this.handleInput(e, 'providersInput')} />
-                    <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Edit Movie" />
-                </form>
-            </div>)
+        return (
+          <div className="container">
+            <h4 className="center">Edit a Movie!</h4>
+            <form className="center" onSubmit={(e) => this.props.updateSubmit(e, this.state)}>
+                {/* cross-reference comment below with comment above in axios .put */}
+                {/* <form className="center" action='`/movies/${_id}`' method="put" onSubmit={(e) => this.handleUpdate(e, this.props.id)}> */}
+                <input className="center" type="text" name="name" placeholder="Name"  onChange={e => this.handleInput(e, 'nameInput')} />
+                <input className="center" type="text" name="year" placeholder="Year" onChange={e => this.handleInput(e, 'yearInput')} />
+                <input className="center" type="text" name="providers" placeholder="Provider" onChange={e => this.handleInput(e, 'providersInput')} />
+                <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Edit Movie" />
+            </form>
+          </div>
+        )
     }
 }
 
