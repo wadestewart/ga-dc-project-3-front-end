@@ -11,7 +11,7 @@ class Search extends Component {
                 {/* <form class="forms center-align" onSubmit={this.props.searchSubmit}> */}
                 <form class="forms" onSubmit={this.props.searchSubmit}>
                     <div>
-                    <input class="input-field"
+                    <input class="search-field"
                         type='text'
                         placeholder='Search for Movie'
                         value={this.props.query}
@@ -19,7 +19,7 @@ class Search extends Component {
                     </div>
                     <div>
                         {/* <button type='submit'>Search</button> */}
-                        <button class="waves-effect waves-light btn-floating" type='submit'><i class="material-icons left grey">search</i>Search</button>
+                        <button class="waves-effect waves-light btn-floating" type='submit'><i class="material-icons left red accent-4">search</i>Search</button>
                     </div>
                 </form>
             </div>

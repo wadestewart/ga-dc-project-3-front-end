@@ -17,19 +17,12 @@
   font-weight: 850;
   margin: 85px 550px 50px 30px;
   /* color: red accent-4; */
-  border: 30px;
+  border: 3px dashed white;
 }
 
-/* textarea:focus {
-  border-bottom: 1px solid #f40b03;
-  -webkit-box-shadow: 0 1px 0 0 #f40b03;
-  -moz-box-shadow: 0 1px 0 0 #f40b03;
-  box-shadow: 0 1px 0 0 #f40b03;
-} */
-
-.btn {
+/* .btn {
   color: red;
-}
+} */
 
   /* label underline focus color - from Stack overflow */
 .container {
@@ -82,8 +75,10 @@ li {
   background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
 }
 
-h4 {
+h4.center {
+  font-family: "Bebas Neue";
   color: white;
+  margin: 200px 0 50px 0;
 }
 
 /* #forms {
@@ -123,10 +118,16 @@ i.center.btn.waves-effect.waves-light {
   border: 2px dashed white;
 }
 
-input.input-field {
+/* input.input-field {
+  border-bottom: 1px solid #a00c07;
+  -webkit-box-shadow: 0 1px 0 0 #a00c07;
+  -moz-box-shadow: 0 1px 0 0 #a00c07;
+  box-shadow: 0 1px 0 0 #a00c07;
+} */
+
+input.search-field {
   border-bottom: 1px solid #a00c07;
   -webkit-box-shadow: 0 1px 0 0 #a00c07;
   -moz-box-shadow: 0 1px 0 0 #a00c07;
   box-shadow: 0 1px 0 0 #a00c07;
 }
-
