@@ -15,9 +15,13 @@
   animation: App-logo-spin infinite 20s linear;
   height: 5px;
   font-weight: 850;
-  margin: 85px 550px 50px 30px;
+  margin: 220px 550px 50px 75px;
   /* color: red accent-4; */
   border: 3px dashed white;
+}
+
+a.brand-logo.responsive-image {
+  font-size: 60px;
 }
 
 /* .btn {
