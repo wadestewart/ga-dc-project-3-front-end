@@ -14,6 +14,8 @@ import {
   deleteMovie
 } from '../../Utility'
 
+import Header from '../Header'
+import SearchMovie from '../Forms/SearchMovie'
 import './App.css'
 
 class App extends Component {
@@ -30,7 +32,7 @@ class App extends Component {
     }) 
   }
 
-  searchSubmit = (e) => {
+  submitSearch = (e) => {
     e.preventDefault()
     console.log(this.state)
     let searchMovieIndex = this.state.movies.findIndex(movie => {
@@ -39,13 +41,12 @@ class App extends Component {
 
     if (searchMovieIndex !== -1) {
       this.setState(prevState => ({
-        hasSearched: !prevState.hasSearched,
-        movieMatchId: this.state.movies[searchMovieIndex]._id
+        matchId: this.state.movies[searchMovieIndex]._id
       }), _ => console.log(this.state))
     }
   }
 
-  updateSubmit = (e, inputObj) => {
+  submitUpdate = (e, inputObj) => {
     e.preventDefault()
     inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
     updateMovie(inputObj)
@@ -56,7 +57,7 @@ class App extends Component {
       })
   }
 
-  postSubmit = (e, inputObj) => {
+  submitPost = (e, inputObj) => {
     e.preventDefault()
     inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
     postMovie(inputObj)
@@ -67,7 +68,7 @@ class App extends Component {
     })
   }
 
-  deleteSubmit = (e, inputObj) => {
+  submitDelete = (e, inputObj) => {
     e.preventDefault()
     deleteMovie(inputObj)
     .then(movies => {
@@ -93,8 +94,11 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-        {/* TODO header placeholder here */}
-        {/* TODO search(container?) placeholder here */}
+        <Header />
+        <SearchMovie
+          handleSearchInput={this.handleSearchInput}
+          submitSearch={this.submitSearch}
+        />
         <Switch>
           {/* /movies/results/:id */}
           {/* /movies/results */}
