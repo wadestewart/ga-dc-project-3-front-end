@@ -18,6 +18,7 @@ import Header from '../Header'
 import SearchMovie from '../Forms/SearchMovie'
 import Test from '../Test'
 import MovieSingle from '../Results/MovieSingle'
+import MoviesAll from '../Results/MoviesAll'
 import './App.css'
 
 class App extends Component {
@@ -101,6 +102,7 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           submitSearch={this.submitSearch}
         />
+        <Link to='/movies/results'>All Movies</Link>
         {this.state.matchId &&
           <Redirect to={`/movies/results/${this.state.matchId}`} />
         }
@@ -111,13 +113,22 @@ class App extends Component {
             render={(props) => (
               <MovieSingle
                 {...props}
-                movieData={this.state.movies.find(movie => (movie._id === this.state.matchId))}
+                movieData={this.state.movies.find(movie => (movie._id === this.state.matchId))
+                }
               />
             )}
           />
 
           {/* /movies/results */}
-
+          <Route
+            path='/movies/results'
+            render={(props) => (
+              <MoviesAll
+                {...props}
+                moviesData={this.state.movies}
+              />
+            )}
+          />
           {/* /movies/create */}
 
           {/* /test */}
