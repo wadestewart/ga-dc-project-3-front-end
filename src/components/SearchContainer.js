@@ -38,6 +38,14 @@ class SearchContainer extends Component {
         }
     }
 
+    updateSubmit = (e, inputObj) => {
+        e.preventDefault()
+        // console.log(inputObj)
+        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        // console.log(inputObj)
+        
+    }
+
     componentDidMount = () => {
         queryMovie()
             .then(movies => {
@@ -60,7 +68,7 @@ class SearchContainer extends Component {
                     && <Results 
                         movies={this.state.movies}
                         movieId={this.state.movieMatchId} 
-                        handleInput={this.handleInput}/>
+                        updateSubmit={this.updateSubmit}/>
                 }
             </div>
         )

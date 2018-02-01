@@ -17,7 +17,7 @@ class Update extends Component {
     render() {
         return (<div>
                 <h4 className="center">Edit a Movie!</h4>
-                <form className="center" action="`/movies/${_id}`" method="put" onSubmit={(e) => this.props.searchSubmit(e, this.state)}>
+                <form className="center" action="`/movies/${_id}`" method="put" onSubmit={(e) => this.props.updateSubmit(e, this.state)}>
                     {/* cross-reference comment below with comment above in axios .put */}
                     {/* <form className="center" action='`/movies/${_id}`' method="put" onSubmit={(e) => this.handleUpdate(e, this.props.id)}> */}
                     <input className="center" type="text" name="name" placeholder="Name"  onChange={e => this.handleInput(e, 'nameInput')} />
