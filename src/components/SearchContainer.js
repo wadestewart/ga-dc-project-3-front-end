@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import {queryMovie} from './Utility'
+import {
+    queryMovie,
+    updateMovie,
+    createMovie,
+    deleteMovie
+} from './Utility'
 import Search from './Search'
 import Results from './Results'
 import Update from './Update'
-// import axios from 'axios'
+import Post from './Post'
 
 class SearchContainer extends Component {
     state = {
         query: '',
-        formInput: {},
         hasSearched: false,
         movies: [],
         movieMatchId: ''
@@ -35,6 +39,41 @@ class SearchContainer extends Component {
         }
     }
 
+    updateSubmit = (e, inputObj) => {
+        e.preventDefault()
+        // console.log(inputObj)
+        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        // console.log(inputObj)
+        updateMovie(inputObj)
+            .then(movies => {
+                this.setState(prevState => ({
+                    movies: movies.data
+                }), _ => console.log(this.state))
+            })
+    }
+
+    postSubmit = (e, inputObj) => {
+        e.preventDefault()
+        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        console.log(inputObj)
+        createMovie(inputObj)
+        .then(movies => {
+            this.setState(prevState => ({
+                movies: movies.data
+            }))
+        })
+    }
+
+    deleteSubmit = (e, inputObj) => {
+        e.preventDefault()
+        deleteMovie(inputObj)
+        .then(movies => {
+            this.setState(prevState => ({
+                movies: movies.data
+            }))
+        })
+    }
+
     componentDidMount = () => {
         queryMovie()
             .then(movies => {
@@ -47,22 +86,20 @@ class SearchContainer extends Component {
     render () {
         return (
             <div className="">
+                <Search 
+                    userSearch={this.userSearch}
+                    query={this.state.query}
+                    searchSubmit={this.searchSubmit}
+                />
                 {
                     this.state.hasSearched
-                    ? <Results 
+                    && <Results 
                         movies={this.state.movies}
-                        movieId={this.state.movieMatchId} />
-                    : <div>
-                        <Update 
-                        userSearch={this.userSearch}
-                        query={this.state.query}
-                        searchSubmit={this.searchSubmit} />
-                    <Search 
-                        userSearch={this.userSearch}
-                        query={this.state.query}
-                        searchSubmit={this.searchSubmit} />
-                    </div>
+                        movieId={this.state.movieMatchId} 
+                        updateSubmit={this.updateSubmit}
+                        deleteSubmit={this.deleteSubmit}/>
                 }
+                <Post postSubmit={this.postSubmit}/>
             </div>
         )
     }

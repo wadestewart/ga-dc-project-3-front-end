@@ -3,52 +3,25 @@ import axios from 'axios'
 
 class Post extends Component {
     state = {
-        movies: [],
-        newMovie: {
-          movieValue: '',
-          yearValue: '',
-          providerValue: ''
-        }
+       nameInput: '',
+       yearInput: '',
+       providersInput: ''
     }
 
-    handleChange = (event) => {
-        let newState = {}
-        newState[event.target.name] = event.target.value
-        this.setState(newState)
-    }
-
-    handlePost = (event) => {
-        console.log('A movie was submitted: ' + this.state.movieValue)
-        console.log('A year was submitted: ' + this.state.yearValue)
-        let sendName = this.state.movieValue
-        let sendYear = Number(this.state.yearValue)
-        let sendProvider = this.state.providerValue
-        event.preventDefault()
-        axios
-            .post(
-            'https://sheltered-dawn-94402.herokuapp.com/movies', 
-            { name: sendName, year: sendYear, providers: sendProvider }
-            )
-            .then(response => {
-                console.log('response from POST', response.data)
-                // the response from the POST request handling method on the express side - REQ.BODY
-                // the response will be the thing just created in the db
-                this.setState(prevState => {
-                    return {
-                    movies: [...prevState.movies, response.data]
-                    }
-                })
-            })
+    handleInput = (e, inputType) => {
+        let updateObj = {}
+        updateObj[inputType] = e.target.value
+        this.setState(prevState => (updateObj), _ => console.log(this.state))
     }
 
     render () {
         return <div class="container">
                 <h4 className="center">Add a Movie!</h4>
 
-                <form className="center" action="/movies" method="post" onSubmit={this.handlePost}>
-                    <input className="center" type="text" name="movieValue" placeholder="Name" value={this.state.movieValue} onChange={this.handleChange} />
-                    <input className="center" type="text" name="yearValue" placeholder="Year" value={this.state.yearValue} onChange={this.handleChange} />
-                    <input className="center" type="text" name="providerValue" placeholder="Provider" value={this.state.providerValue} onChange={this.handleChange} />
+                <form className="center" action="/movies" method="post" onSubmit={(e) => this.props.postSubmit(e, this.state)}>
+                    <input className="center" type="text" name="nameInput" placeholder="Name" onChange={e => this.handleInput(e, 'nameInput')} />
+                    <input className="center" type="text" name="yearInput" placeholder="Year" onChange={e => this.handleInput(e, 'yearInput')} />
+                    <input className="center" type="text" name="providersInput" placeholder="Provider" onChange={e => this.handleInput(e, 'providersInput')} />
                     <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Add Movie" />
                 </form>
             </div>

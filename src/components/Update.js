@@ -3,42 +3,30 @@ import axios from 'axios'
 
 class Update extends Component {
     state = {
-        currentMovie: {
-            movieValue: '',
-            yearValue: '',
-            providerValue: ''
+        movieId: this.props.movieId,
+        nameInput: '',
+        yearInput: '',
+        providersInput: ''
       }
-    }
 
-    handleUpdate = (event, id) => { //pass in id as parameter here
-        // If you move this to a movie component, you can pass a prop
-        console.log('A movie was edited: ' + this.state.movieValue)
-        console.log('A year was edited: ' + this.state.yearValue)
-        event.preventDefault()
-        axios
-        .put(
-        `https://sheltered-dawn-94402.herokuapp.com/movies/${id}`, 
-        {
-            // new value for fields in the Db
-            name: this.props.currentMovie.movieValue, year: this.props.currentMovie.yearValue, providers: this.props.currentMovie.providerValue
-        }
-        ) 
-        //2nd argument will be the object to replace the old thing in the db
+    handleInput = (e, inputType) => {
+        let updateObj = {}
+        updateObj[inputType] = e.target.value
+        this.setState(prevState => (updateObj), _ => console.log(this.state))
     }
 
     render() {
-        return <div class="container">
+        return (<div class="container">
                 <h4 className="center">Edit a Movie!</h4>
-
-                <form className="center" action="`/movies/${_id}`" method="put" onSubmit={(e) => this.props.searchSubmit(e,this.props.id)}>
+                <form className="center" action="`/movies/${_id}`" method="put" onSubmit={(e) => this.props.updateSubmit(e, this.state)}>
                     {/* cross-reference comment below with comment above in axios .put */}
                     {/* <form className="center" action='`/movies/${_id}`' method="put" onSubmit={(e) => this.handleUpdate(e, this.props.id)}> */}
-                    <input className="center" type="text" name="movieValue" placeholder="Name" value={this.props.query} onChange={this.handleUpdate} />
-                    <input className="center" type="text" name="yearValue" placeholder="Year" value={this.props.yearValue} onChange={this.handleUpdate} />
-                    <input className="center" type="text" name="providerValue" placeholder="Provider" value={this.props.providerValue} onChange={this.handleUpdate} />
+                    <input className="center" type="text" name="name" placeholder="Name"  onChange={e => this.handleInput(e, 'nameInput')} />
+                    <input className="center" type="text" name="year" placeholder="Year" onChange={e => this.handleInput(e, 'yearInput')} />
+                    <input className="center" type="text" name="providers" placeholder="Provider" onChange={e => this.handleInput(e, 'providersInput')} />
                     <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Edit Movie" />
                 </form>
-            </div>
+            </div>)
     }
 }
 

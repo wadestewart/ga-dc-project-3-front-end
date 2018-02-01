@@ -13,11 +13,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-            <main>
-              <Switch>
-                <Route path='/create' render={() => (<Post />)} />
-              </Switch>
-            </main>
           <SearchContainer />
         </div>
     </Router>
