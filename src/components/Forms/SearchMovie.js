@@ -14,8 +14,8 @@ class Search extends Component {
                 <input className='input-field'
                   type='text'
                   placeholder='Search for Movie'
-                  value={this.props.query}
-                  onChange={this.props.userSearch} />
+                  value={this.props.searchInput}
+                  onChange={this.props.handleSearchInput} />
               </div>
               <div>
                 {/* <button type='submit'>Search</button> */}

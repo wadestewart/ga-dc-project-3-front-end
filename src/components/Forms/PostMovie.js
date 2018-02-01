@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Post extends Component {
+class PostMovie extends Component {
     state = {
        nameInput: '',
        yearInput: '',
@@ -29,4 +29,4 @@ class Post extends Component {
     }
 }
 
-export default Post
+export default PostMovie

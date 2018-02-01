@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Update from './Update'
-import Delete from './Delete'
+import UpdateMovie from '../Forms/UpdateMovie'
+import DeleteMovie from '../Forms/DeleteMovie'
 
 class Results extends Component {
   componentDidMount () {
@@ -26,8 +26,8 @@ class Results extends Component {
     return (
       <div className='resultslist'>
         {results}
-        <Update updateSubmit={this.props.updateSubmit} movieId={movie._id} />
-        <Delete deleteSubmit={this.props.deleteSubmit} movieId={movie._id} />
+        <UpdateMovie updateSubmit={this.props.updateSubmit} movieId={movie._id} />
+        <DeleteMovie deleteSubmit={this.props.deleteSubmit} movieId={movie._id} />
         {/* <p>Results component has rendered</p> */}
       </div>
     )

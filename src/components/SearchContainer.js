@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
-import Search from './Search'
-import Results from './Results'
-import Post from './Post'
+import SearchMovie from './Forms/SearchMovie'
+import MoviesAll from './Results/MoviesAll'
+import PostMovie from './Forms/PostMovie'
 
 class SearchContainer extends Component {
   render () {
     return (
       <div className=''>
-        <Search
-          userSearch={this.userSearch}
-          query={this.state.query}
+        <SearchMovie
+          handleSearchInput={this.handleSearchInput}
+          searchInput={this.state.searchInput}
           searchSubmit={this.searchSubmit}
         />
         {
           this.state.hasSearched &&
-          <Results
+          <MoviesAll
             movies={this.state.movies}
             movieId={this.state.movieMatchId}
             updateSubmit={this.updateSubmit}
             deleteSubmit={this.deleteSubmit}
           />
         }
-        <Post postSubmit={this.postSubmit} />
+        <PostMovie postSubmit={this.postSubmit} />
       </div>
     )
   }

@@ -6,14 +6,16 @@ import {
   Switch
 } from 'react-router-dom'
 import {
-  queryMovie,
+  getMovies,
   updateMovie,
-  createMovie,
-  deleteMovie
+  postMovie,
+  deleteMovie,
+  getProviders
 } from '../../Utility'
 
-// import Header from './components/Header'
-// import SearchContainer from './components/SearchContainer'
+import Header from '../Header'
+import SearchContainer from '../SearchContainer'
+import PostMovie from '../Forms/PostMovie'
 
 import './App.css'
 
@@ -63,7 +65,7 @@ class App extends Component {
   postSubmit = (e, inputObj) => {
     e.preventDefault()
     inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-    createMovie(inputObj)
+    postMovie(inputObj)
     .then(movies => {
       this.setState(prevState => ({
         movies: movies.data
@@ -82,7 +84,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    queryMovie()
+    getMovies()
       .then(movies => {
         getProviders()
           .then(providers => {
@@ -95,19 +97,66 @@ class App extends Component {
   }
 
   render () {
-    return (
-      <div className='App'>
-        {/* TODO header placeholder here */}
-        {/* TODO search(container?) placeholder here */}
-        <Switch>
-          {/* /movies/results/:id */}
-          {/* /movies/results */}
-          {/* /movies/create */}
-          {/* /* */}
-          {/* / */}
-        </Switch>
-      </div>
-    )
+    return <div className="App">
+            <Header />
+            <SearchContainer />
+            <Switch>
+                {/* <Route 
+                  path="/movies/results" 
+                  render={props => {
+                        return 
+                        <MoviesAll 
+                        {...props} movies={this.state.movies}
+                        matchId={this.state.matchId}
+                        />
+                    }} 
+                /> */}
+                <Route 
+                  path="/movies/create" 
+                  render={props => {
+                        return 
+                        <PostMovie 
+                        {...props} postSubmit={this.state.postSubmit}
+                        />
+                    }} 
+                />
+                {/* <Route 
+                  path="/movies/results/:id" 
+                  render={props => {
+                        return 
+                        <MoviesAll 
+                        {...props} ={(data, language) => this.setTranslation(data, language)} />
+                    }} 
+                /> */}
+                            
+                <Route 
+                  path="/*" 
+                  render={props => {
+                        return 
+                        <SearchContainer 
+                        {...props} handleSearchInput={this.handleSearchInput}
+                        searchSubmit={this.handleSearchInput}
+                        />
+                    }} 
+                />
+                <Route 
+                  path="/" 
+                  render={props => {
+                        return 
+                        <SearchContainer 
+                        {...props} handleSearchInput={this.handleSearchInput}
+                        searchSubmit={this.handleSearchInput}
+                        />
+                    }} 
+                />
+
+                {/* [] /movies/results/:id */}
+                {/* [X] /movies/results */}
+                {/* [X] /movies/create */}
+                {/* [X] /* */}
+                {/* [X] / */}
+            </Switch>
+        </div>
   }
 }
 
