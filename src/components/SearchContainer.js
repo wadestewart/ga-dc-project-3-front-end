@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import {
     queryMovie,
-    updateMovie
+    updateMovie,
+    createMovie,
+    deleteMovie
 } from './Utility'
 import Search from './Search'
 import Results from './Results'
 import Update from './Update'
-// import axios from 'axios'
+import Post from './Post'
 
 class SearchContainer extends Component {
     state = {
@@ -20,10 +22,6 @@ class SearchContainer extends Component {
         this.setState({
             query: e.target.value,
         }) 
-    }
-
-    handleInput = (e, inputObj) => {
-        
     }
 
     searchSubmit = (e) => {
@@ -47,11 +45,33 @@ class SearchContainer extends Component {
         inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
         // console.log(inputObj)
         updateMovie(inputObj)
-            // .then(movies => {
-            //     this.setState(prevState => ({
-            //         movies: movies.data
-            //     }), _ => console.log(this.state))
-            // })
+            .then(movies => {
+                this.setState(prevState => ({
+                    movies: movies.data
+                }), _ => console.log(this.state))
+            })
+    }
+
+    postSubmit = (e, inputObj) => {
+        e.preventDefault()
+        inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+        console.log(inputObj)
+        createMovie(inputObj)
+        .then(movies => {
+            this.setState(prevState => ({
+                movies: movies.data
+            }))
+        })
+    }
+
+    deleteSubmit = (e, inputObj) => {
+        e.preventDefault()
+        deleteMovie(inputObj)
+        .then(movies => {
+            this.setState(prevState => ({
+                movies: movies.data
+            }))
+        })
     }
 
     componentDidMount = () => {
@@ -76,8 +96,10 @@ class SearchContainer extends Component {
                     && <Results 
                         movies={this.state.movies}
                         movieId={this.state.movieMatchId} 
-                        updateSubmit={this.updateSubmit}/>
+                        updateSubmit={this.updateSubmit}
+                        deleteSubmit={this.deleteSubmit}/>
                 }
+                <Post postSubmit={this.postSubmit}/>
             </div>
         )
     }
