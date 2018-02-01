@@ -25,7 +25,7 @@ class Results extends Component {
         return (
             <div className="resultslist">
                {results}
-               <Update updateSubmit={this.props.updateSubmit}/>
+               <Update updateSubmit={this.props.updateSubmit} movieId={movie._id}/>
                {/* <p>Results component has rendered</p> */}
             </div>
         )

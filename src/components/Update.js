@@ -3,6 +3,7 @@ import axios from 'axios'
 
 class Update extends Component {
     state = {
+        movieId: this.props.movieId,
         nameInput: '',
         yearInput: '',
         providersInput: ''

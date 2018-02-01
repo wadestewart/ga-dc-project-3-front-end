@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import {queryMovie} from './Utility'
+import {
+    queryMovie,
+    updateMovie
+} from './Utility'
 import Search from './Search'
 import Results from './Results'
 import Update from './Update'
@@ -43,7 +46,12 @@ class SearchContainer extends Component {
         // console.log(inputObj)
         inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
         // console.log(inputObj)
-        
+        updateMovie(inputObj)
+            // .then(movies => {
+            //     this.setState(prevState => ({
+            //         movies: movies.data
+            //     }), _ => console.log(this.state))
+            // })
     }
 
     componentDidMount = () => {
