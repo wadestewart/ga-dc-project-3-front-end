@@ -1,21 +1,29 @@
-/* .App {
+.App {
   text-align: left;
-} */
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+}
 
 /* a {
   color: black;
 } */
 
 .brand-logo {
-  font-family: "Bebas Neue";
+  font-family: "Bebas Neue", sans-serif;
   display: flex;
   justify-content: center;
   animation: App-logo-spin infinite 20s linear;
-  height: 10px;
+  height: 5px;
   font-weight: 850;
-  margin: 75px 450px;
-  color: black;
+  margin: 85px 550px 50px 30px;
+  color: white;
   border: 30px;
+}
+
+@media (max-width: 300px) {
+  .brand-logo {
+  height: 300px;
+}
 }
 
 .btn {
@@ -30,7 +38,18 @@
 
 .center {
   font-family: "Bebas Neue";
-  font-weight: 400;
+  font-weight: 500;
+  /* margin: 0 400px; */
+}
+
+#name-input {
+  font-family: "Bebas Neue";
+  font-weight: 500;
+}
+
+#year-input {
+  font-family: "Bebas Neue";
+  font-weight: 500;
 }
 
 .link {
@@ -50,3 +69,17 @@ li {
   color: black;
   font-family: "Bebas Neue";
 }
+
+.nav-wrapper {
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+}
+
+h4 {
+  color: white;
+}
+
+/* #forms {
+  font-family: "Bebas Neue";
+  font-weight: 300px;
+} */

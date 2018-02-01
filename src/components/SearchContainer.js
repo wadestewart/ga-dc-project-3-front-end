@@ -85,7 +85,7 @@ class SearchContainer extends Component {
 
     render () {
         return (
-            <div className="">
+            <div className="center">
                 <Search 
                     userSearch={this.userSearch}
                     query={this.state.query}
