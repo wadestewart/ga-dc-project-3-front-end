@@ -1,12 +1,13 @@
-.App {
+/* .App {
   text-align: left;
-}
+} */
 
 /* a {
   color: black;
 } */
 
 .brand-logo {
+  font-family: "Bebas Neue";
   display: flex;
   justify-content: center;
   animation: App-logo-spin infinite 20s linear;
@@ -27,6 +28,11 @@
   flex-direction: row;
 } */
 
+.center {
+  font-family: "Bebas Neue";
+  font-weight: 400;
+}
+
 .link {
   text-align: center;
 }
@@ -36,10 +42,11 @@ li {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(-20deg); }
+  to { transform: rotate(20deg); }
 }
 
 .waves-button-input {
   color: black;
+  font-family: "Bebas Neue";
 }
