@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Movie = ({ movieData }) => {
-  let providers = movieData.providers.map(provider => {
+  let providers = movieData.providers.map((provider, index) => {
     return (
-      <div className='provider'>
+      <div className='provider' key={index}>
         <p>{provider.name}</p>
       </div>
     )

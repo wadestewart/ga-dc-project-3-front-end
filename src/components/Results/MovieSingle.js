@@ -7,10 +7,10 @@ const MovieSingle = ({ movieData }) => {
   return (
     <div className='container-result'>
       <Movie movieData={movieData} />
-      <div className='container-forms'>
+      {/* <div className='container-forms'>
         <UpdateMovie movieData={movieData} />
         <DeleteMovie movieData={movieData} />
-      </div>
+      </div> */}
     </div>
   )
 }

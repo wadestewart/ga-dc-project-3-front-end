@@ -16,6 +16,8 @@ import {
 
 import Header from '../Header'
 import SearchMovie from '../Forms/SearchMovie'
+import Test from '../Test'
+import MovieSingle from '../Results/MovieSingle'
 import './App.css'
 
 class App extends Component {
@@ -99,11 +101,42 @@ class App extends Component {
           handleSearchInput={this.handleSearchInput}
           submitSearch={this.submitSearch}
         />
+        {this.state.matchId &&
+          <Redirect to={`/movies/results/${this.state.matchId}`} />
+        }
         <Switch>
           {/* /movies/results/:id */}
+          <Route
+            path='/movies/results/:id'
+            render={(props) => (
+              <MovieSingle
+                {...props}
+                movieData={this.state.movies.find(movie => (movie._id === this.state.matchId))}
+              />
+            )}
+          />
+
           {/* /movies/results */}
+
           {/* /movies/create */}
+
+          {/* /test */}
+          <Route
+            path='/test'
+            render={(props) => (
+              <Test
+                {...props}
+              />
+            )
+            }
+          />
+
           {/* /* */}
+          {/* <Route
+            path='/*'
+            render={_ => <Redirect to='/' />}
+          /> */}
+
           {/* / */}
         </Switch>
       </div>
