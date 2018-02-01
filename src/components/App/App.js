@@ -84,9 +84,13 @@ class App extends Component {
   componentDidMount () {
     queryMovie()
       .then(movies => {
-        this.setState(prevState => ({
-          movies: movies.data
-        }), _ => console.log(this.state))
+        getProviders()
+          .then(providers => {
+            this.setState(prevState => ({
+              movies: movies.data,
+              providers: providers.data
+            }),_ =>  console.log(this.state))
+          })
       })
   }
 
@@ -94,7 +98,7 @@ class App extends Component {
     return (
       <div className='App'>
         {/* TODO header placeholder here */}
-        {/* TODO search placeholder here */}
+        {/* TODO search(container?) placeholder here */}
         <Switch>
           {/* /movies/results/:id */}
           {/* /movies/results */}
