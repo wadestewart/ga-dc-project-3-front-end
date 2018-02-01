@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const API = 'https://sheltered-dawn-94402.herokuapp.com/'
-const MOVIES_ENDPOINT = API + '/movies'
-const PROVIDERS_ENDPOINT = API + '/providers'
+const MOVIES_ENDPOINT = API + 'movies'
+const PROVIDERS_ENDPOINT = API + 'providers'
 
 export function getProviders () {
   return axios
@@ -12,10 +12,8 @@ export function getProviders () {
 
 export function getMovies () {
   return axios
-    .get(API)
-    .then(res => {
-      return res
-    })
+    .get(MOVIES_ENDPOINT)
+    .then(res => (res))
 }
 
 export function postMovie (data) {
@@ -26,13 +24,18 @@ export function postMovie (data) {
       providers: data.providersInput
     }
   }
-  console.log(API)
-  console.log(payload)
+
   return axios
     .post(API, payload)
-    .then(response => {
-      return response
-    })
+    .then(res => (res))
+}
+
+export function getMovie (data) {
+  let url = MOVIES_ENDPOINT + '/' + data.movieId
+
+  return axios
+    .get(url)
+    .then(res => (res))
 }
 
 export function updateMovie (data) {
@@ -44,21 +47,15 @@ export function updateMovie (data) {
       providers: data.providersInput
     }
   }
-  console.log(url)
-  console.log(payload)
+
   return axios
     .put(url, payload)
-    .then(response => {
-      return response
-    })
+    .then(res => (res))
 }
 
 export function deleteMovie (data) {
   let url = MOVIES_ENDPOINT + '/' + data.movieId
-  console.log(url)
   return axios
     .delete(url)
-    .then(response => {
-      return response
-    })
+    .then(res => (res))
 }

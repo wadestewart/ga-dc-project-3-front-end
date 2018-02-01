@@ -1,31 +1,27 @@
 import React, { Component } from 'react'
 import {
+  Switch,
   Route,
   Link,
-  Redirect,
-  Switch
+  Redirect
 } from 'react-router-dom'
 import {
-  queryMovie,
+  getProviders,
+  getMovies,
+  postMovie,
+  getMovie,
   updateMovie,
-  createMovie,
   deleteMovie
 } from '../../Utility'
-
-// import Header from './components/Header'
-// import SearchContainer from './components/SearchContainer'
 
 import './App.css'
 
 class App extends Component {
   state = {
     searchInput: '',
-    searchResults: {
-      isMatch: false,
-      matchId: ''
-    },
     movies: [],
-    providers: []
+    providers: [],
+    matchId: ''
   }
 
   handleSearchInput = (e) => {
@@ -63,7 +59,7 @@ class App extends Component {
   postSubmit = (e, inputObj) => {
     e.preventDefault()
     inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-    createMovie(inputObj)
+    postMovie(inputObj)
     .then(movies => {
       this.setState(prevState => ({
         movies: movies.data
@@ -82,7 +78,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    queryMovie()
+    getMovies()
       .then(movies => {
         getProviders()
           .then(providers => {
