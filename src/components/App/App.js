@@ -36,7 +36,7 @@ class App extends Component {
     e.preventDefault()
     console.log(this.state)
     let searchMovieIndex = this.state.movies.findIndex(movie => {
-      return movie.name === this.state.query
+      return movie.name === this.state.searchInput
     })
 
     if (searchMovieIndex !== -1) {
