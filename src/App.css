@@ -40,3 +40,6 @@ li {
   to { transform: rotate(360deg); }
 }
 
+.waves-button-input {
+  color: black;
+}
