@@ -42,14 +42,14 @@ class Post extends Component {
     }
 
     render () {
-        return <div>
+        return <div class="container">
                 <h4 className="center">Add a Movie!</h4>
 
                 <form className="center" action="/movies" method="post" onSubmit={this.handlePost}>
                     <input className="center" type="text" name="movieValue" placeholder="Name" value={this.state.movieValue} onChange={this.handleChange} />
                     <input className="center" type="text" name="yearValue" placeholder="Year" value={this.state.yearValue} onChange={this.handleChange} />
                     <input className="center" type="text" name="providerValue" placeholder="Provider" value={this.state.providerValue} onChange={this.handleChange} />
-                    <input className=" center btn waves-effect waves-light pink accent-2 " type="submit" value="Add Movie" />
+                    <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Add Movie" />
                 </form>
             </div>
     }
