@@ -16,18 +16,25 @@
   height: 5px;
   font-weight: 850;
   margin: 85px 550px 50px 30px;
-  color: white;
+  /* color: red accent-4; */
   border: 30px;
 }
 
-@media (max-width: 300px) {
-  .brand-logo {
-  height: 300px;
-}
-}
+/* textarea:focus {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+} */
 
 .btn {
   color: red;
+}
+
+  /* label underline focus color - from Stack overflow */
+.container {
+  color: 1px solid rgb(204, 0, 0);
+    /* box-shadow: 0 1px 0 0 rgb(92, 9, 9); */
 }
 
 /* .nav {
@@ -83,3 +90,43 @@ h4 {
   font-family: "Bebas Neue";
   font-weight: 300px;
 } */
+
+a.waves-effect {
+  color: black;
+  font-family: "Bebas Neue";
+  font-weight: bold;
+  border: 2px dashed white;
+}
+
+input#name-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+input#year-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+input#provider-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+i.center.btn.waves-effect.waves-light {
+  border: 2px dashed white;
+}
+
+input.input-field {
+  border-bottom: 1px solid #a00c07;
+  -webkit-box-shadow: 0 1px 0 0 #a00c07;
+  -moz-box-shadow: 0 1px 0 0 #a00c07;
+  box-shadow: 0 1px 0 0 #a00c07;
+}
+

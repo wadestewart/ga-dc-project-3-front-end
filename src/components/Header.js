@@ -6,7 +6,7 @@ const Header = () => (
             <a href="/" className="brand-logo responsive-image red-text z-depth-5 black">Netflix & Chill</a>
                 <ul className="right hide-on-med-and-down">
                     <li>
-                        <a class="red accent-4 waves-effect waves" href="/create">Create</a>
+                        <a class="waves-effect waves red accent-4" href="/create">Create</a>
                     </li>
                 </ul>
         </div>
