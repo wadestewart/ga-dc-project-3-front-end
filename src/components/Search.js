@@ -19,7 +19,7 @@ class Search extends Component {
                     </div>
                     <div>
                         {/* <button type='submit'>Search</button> */}
-                        <button class="waves-effect waves-light btn-large" type='submit'><i class="material-icons left grey">search</i>Search</button>
+                        <button class="waves-effect waves-light btn-floating grey" type='submit'><i class="material-icons left grey">search</i>Search</button>
                     </div>
                 </form>
             </div>
