@@ -1,5 +1,7 @@
 .App {
   text-align: left;
+  /* background-color: black; */
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
 }
 
 /* a {
@@ -8,17 +10,29 @@
 
 .brand-logo {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  font-family: "Bebas Neue", sans-serif;
   animation: App-logo-spin infinite 20s linear;
-  height: 10px;
+  height: 5px;
   font-weight: 850;
-  margin: 75px 450px;
-  color: black;
-  border: 30px;
+  margin: 220px 550px 50px 75px;
+  /* color: black; */
+  border: 3px dashed white;
 }
 
-.btn {
+/* .btn {
   color: red;
+} */
+
+a.brand-logo.responsive-image {
+  font-size: 60px;
+  color: #f40b03;
+}
+
+/* label underline focus color - from Stack Overflow */
+.container {
+  color: 1px solid rgb(204, 0, 0);
+  box-shadow:0 1px 0 0 rgb(92, 9, 9);
 }
 
 /* .nav {
@@ -27,16 +41,85 @@
   flex-direction: row;
 } */
 
-.link {
+.center {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 500;
+}
+
+#name-input {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 500;
+}
+
+#year-input {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 500;
+}
+
+/* .link {
   text-align: center;
 }
 
 li {
   list-style: none;
-}
+} */
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
+.waves-button-input {
+  color: black;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* .nav-wrapper {
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+} */
+
+h4.center {
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  margin: 200px 0 50px 0;
+}
+
+a.waves-effect {
+  color:black;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: bold;
+  border: 2px dashed white;
+}
+
+input#name-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+input#year-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+input#provider-input.center {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
+
+i.center.btn.waves-effect.waves-light {
+  border: 2px dashed white;
+}
+
+input.search-field {
+  border-bottom: 1px solid #f40b03;
+  -webkit-box-shadow: 0 1px 0 0 #f40b03;
+  -moz-box-shadow: 0 1px 0 0 #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+}
