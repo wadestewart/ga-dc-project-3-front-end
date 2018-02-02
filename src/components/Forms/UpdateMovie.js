@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Update extends Component {
+class UpdateMovie extends Component {
     state = {
         movieId: this.props.movieId,
         nameInput: '',
@@ -15,11 +15,10 @@ class Update extends Component {
     }
 
     componentDidMount () {
-      console.log(this.props)
       this.setState(prevState => ({
         nameInput: this.props.movie.name,
         yearInput: this.props.movie.year,
-      }),_ => console.log(this.state))
+      }))
     }
 
     render() {
@@ -40,7 +39,7 @@ class Update extends Component {
                     <input className="center" type="text" name="name" placeholder="Name" value={this.state.nameInput} onChange={e => this.handleInput(e, 'nameInput')} />
                     <input className="center" type="text" name="year" placeholder="Year" value={this.state.yearInput} onChange={e => this.handleInput(e, 'yearInput')} />
                     <input className="center" type="text" name="providers" placeholder="Provider" value={this.state.providersInput} onChange={e => this.handleInput(e, 'providersInput')} />
-                    <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Edit Movie" />
+                    <input className="center btn waves-effect waves-light" type="submit" value="Edit Movie" />
                 </form>
               </div>
             }
@@ -50,4 +49,4 @@ class Update extends Component {
     }
 }
 
-export default Update
+export default UpdateMovie

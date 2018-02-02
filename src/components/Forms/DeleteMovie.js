@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 
-class Delete extends Component {
+class DeleteMovie extends Component {
   render () {
     return (
-      <div className='deleteButton'>
-        <button className=' center btn waves-effect waves-light red accent-4' value='Delete' onClick={(e) => this.props.deleteSubmit(e, {movieId: this.props.movieId})}>Delete</button>
+      <div className='deleteButton center'>
+        <button className=' center btn waves-effect waves-light' value='Delete' onClick={(e) => {
+          this.props.submitDelete(e, {movieId: this.props.movieId})
+          this.props.history.push('/')
+        }}>
+          {'Delete'}
+        </button>
       </div>
     )
   }
 }
 
-export default Delete
+export default DeleteMovie
