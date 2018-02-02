@@ -26,7 +26,7 @@ export function postMovie (data) {
   }
 
   return axios
-    .post(API, payload)
+    .post(MOVIES_ENDPOINT, payload)
     .then(res => (res))
 }
 
