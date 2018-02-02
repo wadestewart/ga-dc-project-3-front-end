@@ -1,54 +1,97 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const SearchMovie = ({ handleSearchInput, submitSearch }) => {
-  return (
-    <form
-      className='forms'
-      onSubmit={submitSearch}
-    >
-      <input
-        type='text'
-        placeholder='Search for Movie'
-        onChange={handleSearchInput}
-      />
-      <button
-        className='waves-effect waves-light grey'
-        type='submit'
+import { getMovies } from '../../Utility'
+
+
+class SearchMovie extends Component {
+  state = {
+    movies: [],
+    searchInput: '',
+    matchId: ''
+  }
+
+  resetMatch = _ => {
+    this.setState({
+      searchInput: '',
+      matchId: ''
+    })
+  }
+
+  handleSearchInput = e => {
+    this.setState({
+      searchInput: e.target.value,
+    }) 
+  }
+
+  submitSearch = e => {
+    e.preventDefault()
+    let searchMovieIndex = this.state.movies.findIndex(movie => {
+      return movie.name === this.state.searchInput
+    })
+
+    if (searchMovieIndex !== -1) {
+      this.setState(prevState => ({
+        matchId: this.state.movies[searchMovieIndex]._id
+      }), _ => {
+        // console.log(this.state)
+        // console.log(`/movies/results/${this.state.matchId}`)
+        this.props.history.push(`/movies/results/${this.state.matchId}`)
+      })
+    } else { console.log('no match') }
+  }
+
+  componentDidMount () {
+    console.log(this.props)
+    console.log(this.state)
+    getMovies()
+      .then(movies => {
+        this.setState(prevState => ({
+          movies: movies.data
+        }), _ => console.log(this.state))
+      })
+  }
+
+  render () {
+    return (
+      <form
+        className='forms'
+        onSubmit={this.submitSearch}
       >
-      Search
-      </button>
-    </form>
-  )
+        <input
+          type='text'
+          placeholder='Search for Movie'
+          onChange={this.handleSearchInput}
+        />
+        <button
+          className='waves-effect waves-light grey'
+          type='submit'
+        >
+        Search
+        </button>
+      </form>
+    )
+  }
 }
 
-// class Search extends Component {
-//   render () {
-//     return (
-//       <div className='container'>
-//         {/* <div class="row center-align"> */}
-//         <div className='row'>
-//           <div className='col s6 offset-s3'>
-//             {/* <div class="col s5 offset-s4"> */}
-//             {/* <form class="forms center-align" onSubmit={this.props.searchSubmit}> */}
-            // <form className='forms' onSubmit={this.props.searchSubmit}>
-            //   <div>
-            //     <input className='input-field'
-            //       type='text'
-            //       placeholder='Search for Movie'
-            //       value={this.props.query}
-            //       onChange={this.props.userSearch} />
-            //   </div>
-            //   <div>
-            //     {/* <button type='submit'>Search</button> */}
-            //     <button className='waves-effect waves-light btn-floating grey' type='submit'><i className='material-icons left grey'>search</i>Search</button>
-            //   </div>
-            // </form>
-//           </div>
-//           {/* </div> */}
-//         </div>
-//       </div>
-//     )
-//   }
+// const SearchMovie = ({ handleSearchInput, submitSearch }) => {
+//   return (
+    // <form
+    //   className='forms'
+    //   onSubmit={submitSearch}
+    // >
+    //   <input
+    //     type='text'
+    //     placeholder='Search for Movie'
+    //     onChange={handleSearchInput}
+    //   />
+    //   <button
+    //     className='waves-effect waves-light grey'
+    //     type='submit'
+    //   >
+    //   Search
+    //   </button>
+    // </form>
+//   )
 // }
 
 export default SearchMovie
