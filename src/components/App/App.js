@@ -14,9 +14,8 @@ import {
   deleteMovie
 } from '../../Utility'
 
-import Header from '../Header'
-import SearchMovie from '../Forms/SearchMovie'
-import Test from '../Test'
+import Header from '../Header/Header'
+// import SearchMovie from '../Forms/SearchMovie'
 import MovieSingle from '../Results/MovieSingle'
 import MoviesAll from '../Results/MoviesAll'
 import './App.css'
@@ -128,6 +127,7 @@ class App extends Component {
             path='/movies/results/:id'
             render={(props) => (
               <div>
+                {/* <Header {...props} /> */}
                 <MovieSingle
                 {...props}
                 // getMovie={getMovie}
@@ -161,11 +161,11 @@ class App extends Component {
             path='/'
             render={(props) => (
               <div>
-                <Header />
-                <SearchMovie 
+                <Header {...props} />
+                {/* <SearchMovie 
                   {...props}
                 />
-                <Link to='/movies/results'>All Movies</Link>
+                <Link to='/movies/results'>All Movies</Link> */}
                 {/* {this.state.isMatch &&
                   <Redirect to={`/movies/results/${this.state.matchId}`} /> */}
               </div>

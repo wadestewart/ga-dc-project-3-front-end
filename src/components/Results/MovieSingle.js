@@ -10,7 +10,8 @@ import {
 
 class MovieSingle extends Component {
   state = {
-    movie: undefined
+    movie: undefined,
+    isFirstRender: false
   }
 
   handleBack = _ => {
@@ -45,10 +46,26 @@ class MovieSingle extends Component {
     getMovie({movieId: this.props.match.params.id})
       .then(movie => {
         this.setState(prevState => ({
-          movie: movie.data
+          movie: movie.data,
+          isFirstRender: true
         }), _ => console.log(this.state))
       })
   }
+
+  // shouldComponentUpdate () {
+  //   if (this.state.movie && this.state.isFirstRender) {
+  //     return this.props.match.params.id !== this.state.movie._id
+  //   } else return false
+  // }
+
+  // componentDidUpdate () {
+  //   getMovie({movieId: this.props.match.params.id})
+  //     .then(movie => {
+  //       this.setState(prevState => ({
+  //         movie: movie.data
+  //       }), _ => console.log(this.state))
+  //     })
+  // }
 
   render () {
     return (

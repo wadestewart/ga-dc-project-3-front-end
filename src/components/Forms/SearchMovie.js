@@ -41,6 +41,7 @@ class SearchMovie extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props)
     console.log(this.state)
     getMovies()
       .then(movies => {
