@@ -22,6 +22,7 @@
 
 a.brand-logo.responsive-image {
   font-size: 60px;
+  color: #f40b03;
 }
 
 /* .btn {
@@ -102,7 +103,17 @@ input#name-input.center {
   -webkit-box-shadow: 0 1px 0 0 #f40b03;
   -moz-box-shadow: 0 1px 0 0 #f40b03;
   box-shadow: 0 1px 0 0 #f40b03;
+  
 }
+/* 
+input#name-input.center [type=text]:focus + label {
+  color: #f40b03;
+}
+
+input#name-input.center [type=text]:focus + label {
+  border-bottom: 1px solid #f40b03;
+  box-shadow: 0 1px 0 0 #f40b03;
+} */
 
 input#year-input.center {
   border-bottom: 1px solid #f40b03;
