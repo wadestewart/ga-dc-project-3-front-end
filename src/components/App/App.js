@@ -23,40 +23,36 @@ import './App.css'
 
 class App extends Component {
   state = {
-    movies: [],
-    providers: [],
-    searchInput: '',
-    isMatch: false,
-    matchId: ''
+    movies: []
   }
 
-  resetMatch = _ => {
-    this.setState({
-      searchInput: '',
-      isMatch: false,
-      matchId: ''
-    })
-  }
+  // resetMatch = _ => {
+  //   this.setState({
+  //     searchInput: '',
+  //     isMatch: false,
+  //     matchId: ''
+  //   })
+  // }
 
-  handleSearchInput = e => {
-    this.setState({
-      searchInput: e.target.value,
-    }) 
-  }
+  // handleSearchInput = e => {
+  //   this.setState({
+  //     searchInput: e.target.value,
+  //   }) 
+  // }
 
-  submitSearch = e => {
-    e.preventDefault()
-    let searchMovieIndex = this.state.movies.findIndex(movie => {
-      return movie.name === this.state.searchInput
-    })
+  // submitSearch = e => {
+  //   e.preventDefault()
+  //   let searchMovieIndex = this.state.movies.findIndex(movie => {
+  //     return movie.name === this.state.searchInput
+  //   })
 
-    if (searchMovieIndex !== -1) {
-      this.setState(prevState => ({
-        isMatch: true,
-        matchId: this.state.movies[searchMovieIndex]._id
-      }), _ => console.log(this.state))
-    }
-  }
+  //   if (searchMovieIndex !== -1) {
+  //     this.setState(prevState => ({
+  //       isMatch: true,
+  //       matchId: this.state.movies[searchMovieIndex]._id
+  //     }), _ => console.log(this.state))
+  //   }
+  // }
 
   submitUpdate = (e, inputObj) => {
     e.preventDefault()
@@ -93,27 +89,36 @@ class App extends Component {
     })
   }
 
+  // componentDidMount () {
+  //   console.log(this.state)
+  //   getMovies()
+  //     .then(movies => {
+  //       getProviders()
+  //         .then(providers => {
+  //           this.setState(prevState => ({
+  //             movies: movies.data,
+  //             providers: providers.data
+  //           }),_ =>  console.log(this.state))
+  //         })
+  //     })
+  // }
+
   componentDidMount () {
     console.log(this.state)
     getMovies()
       .then(movies => {
-        getProviders()
-          .then(providers => {
-            this.setState(prevState => ({
-              movies: movies.data,
-              providers: providers.data
-            }),_ =>  console.log(this.state))
-          })
+        this.setState(prevState => ({
+          movies: movies.data
+        }),_ =>  console.log(this.state))
       })
   }
 
   render () {
     return (
       <div className='App'>
-        <Header />
         <Switch>
           {/* /movies/results/:id */}
-          <Route
+          {/* <Route
             path='/movies/results/:id'
             render={(props) => (
               <div>
@@ -122,39 +127,24 @@ class App extends Component {
                 }
                 <MovieSingle
                 {...props}
-                resetMatch={this.resetMatch}
-                matchId={this.state.matchId}
-                getMovie={getMovie}
-                submitUpdate={this.submitUpdate}
-                submitDelete={this.submitDelete}
+                // getMovie={getMovie}
+                // submitUpdate={this.submitUpdate}
+                // submitDelete={this.submitDelete}
               />
               </div>
               
             )}
-          />
+          /> */}
 
           {/* /movies/results */}
-          <Route
+          {/* <Route
             path='/movies/results'
             render={(props) => (
               <MoviesAll
                 {...props}
-                moviesData={this.state.movies}
               />
             )}
-          />
-          {/* /movies/create */}
-
-          {/* /test */}
-          <Route
-            path='/test'
-            render={(props) => (
-              <Test
-                {...props}
-              />
-            )
-            }
-          />
+          /> */}
 
           {/* /* */}
           {/* <Route
@@ -167,14 +157,14 @@ class App extends Component {
             path='/'
             render={(props) => (
               <div>
-                <SearchMovie
-                  handleSearchInput={this.handleSearchInput}
-                  submitSearch={this.submitSearch}
+                <Header />
+                <SearchMovie 
+                {...props}
+                movie={this.state.movies}
                 />
                 <Link to='/movies/results'>All Movies</Link>
-                {this.state.isMatch &&
-                  <Redirect to={`/movies/results/${this.state.matchId}`} />
-                }
+                {/* {this.state.isMatch &&
+                  <Redirect to={`/movies/results/${this.state.matchId}`} /> */}
               </div>
             )}
           />
