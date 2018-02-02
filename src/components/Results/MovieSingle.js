@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Movie from '../subcomponents/Movie'
-import SearchMovie from '../Forms/SearchMovie'
 import UpdateMovie from '../Forms/UpdateMovie'
 import DeleteMovie from '../Forms/DeleteMovie'
 
@@ -38,7 +37,6 @@ class MovieSingle extends Component {
           <DeleteMovie
             {...this.props}
             movieId={this.props.match.params.id}
-            submitDelete={this.props.submitDelete}
           />
         </div>
         }
