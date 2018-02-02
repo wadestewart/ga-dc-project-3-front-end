@@ -32,15 +32,15 @@ class MovieSingle extends Component {
   //     })
   // }
 
-  submitDelete = (e, inputObj) => {
-    e.preventDefault()
-    deleteMovie(inputObj)
-    .then(movies => {
-      this.setState(prevState => ({
-        movies: movies.data
-      }))
-    })
-  }
+  // submitDelete = (e, inputObj) => {
+  //   e.preventDefault()
+  //   deleteMovie(inputObj)
+  //   .then(movies => {
+  //     this.setState(prevState => ({
+  //       movies: movies.data
+  //     }))
+  //   })
+  // }
 
   componentDidMount () {
     getMovie({movieId: this.props.match.params.id})
@@ -82,7 +82,7 @@ class MovieSingle extends Component {
           <DeleteMovie
             {...this.props}
             movieId={this.props.match.params.id}
-            submitDelete={this.submitDelete}
+            setMovieState={this.props.setMovieState}
           />
         </div>
         }

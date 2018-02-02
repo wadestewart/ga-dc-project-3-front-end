@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import {
-  getMovie,
-  updateMovie,
-  deleteMovie
+  updateMovie
 } from '../../Utility'
 
 class UpdateMovie extends Component {
@@ -21,6 +19,7 @@ class UpdateMovie extends Component {
 
     submitUpdate = (inputObj) => {
       inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+      console.log(inputObj)
       updateMovie(inputObj)
         .then(_ => {
           this.props.setMoviesState()
