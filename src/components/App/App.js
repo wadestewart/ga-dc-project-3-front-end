@@ -54,9 +54,12 @@ class App extends Component {
   // }
 
   setMoviesState = (newMovies) => {
-    this.setState(prevState => ({
-      movies: newMovies
-    }), _ => console.log(this.state))
+    getMovies()
+      .then(movies => {
+        this.setState(prevState => ({
+          movies: movies.data
+        }),_ =>  console.log(this.state))
+      })
   }
 
   // submitUpdate = (e, inputObj) => {

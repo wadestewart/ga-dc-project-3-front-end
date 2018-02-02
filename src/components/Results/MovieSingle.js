@@ -18,19 +18,19 @@ class MovieSingle extends Component {
     this.props.history.push('/')
   }
 
-  submitUpdate = (e, inputObj) => {
-    e.preventDefault()
-    inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-    updateMovie(inputObj)
-      .then(movies => {
-        this.setState(prevState => ({
-          movies: movies.data
-        }), _ => {
-          console.log(this.state)
-          this.forceUpdate()
-        })
-      })
-  }
+  // submitUpdate = (e, inputObj) => {
+  //   e.preventDefault()
+  //   inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+  //   updateMovie(inputObj)
+  //     .then(movies => {
+  //       this.setState(prevState => ({
+  //         movies: movies.data
+  //       }), _ => {
+  //         console.log(this.state)
+  //         this.forceUpdate()
+  //       })
+  //     })
+  // }
 
   submitDelete = (e, inputObj) => {
     e.preventDefault()
@@ -73,15 +73,17 @@ class MovieSingle extends Component {
         {this.state.movie && 
         <div>
           <Movie movieData={this.state.movie} />
-          {/* <UpdateMovie
+          <UpdateMovie
             {...this.props}
             movie={this.state.movie}
             movieId={this.props.match.params.id}
+            setMovieState={this.props.setMovieState}
           />
           <DeleteMovie
             {...this.props}
             movieId={this.props.match.params.id}
-          /> */}
+            submitDelete={this.submitDelete}
+          />
         </div>
         }
         <button onClick={this.handleBack}>Back</button>
