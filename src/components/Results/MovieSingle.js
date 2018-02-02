@@ -18,30 +18,6 @@ class MovieSingle extends Component {
     this.props.history.push('/')
   }
 
-  // submitUpdate = (e, inputObj) => {
-  //   e.preventDefault()
-  //   inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-  //   updateMovie(inputObj)
-  //     .then(movies => {
-  //       this.setState(prevState => ({
-  //         movies: movies.data
-  //       }), _ => {
-  //         console.log(this.state)
-  //         this.forceUpdate()
-  //       })
-  //     })
-  // }
-
-  // submitDelete = (e, inputObj) => {
-  //   e.preventDefault()
-  //   deleteMovie(inputObj)
-  //   .then(movies => {
-  //     this.setState(prevState => ({
-  //       movies: movies.data
-  //     }))
-  //   })
-  // }
-
   componentDidMount () {
     getMovie({movieId: this.props.match.params.id})
       .then(movie => {
@@ -51,21 +27,6 @@ class MovieSingle extends Component {
         }), _ => console.log(this.state))
       })
   }
-
-  // shouldComponentUpdate () {
-  //   if (this.state.movie && this.state.isFirstRender) {
-  //     return this.props.match.params.id !== this.state.movie._id
-  //   } else return false
-  // }
-
-  // componentDidUpdate () {
-  //   getMovie({movieId: this.props.match.params.id})
-  //     .then(movie => {
-  //       this.setState(prevState => ({
-  //         movie: movie.data
-  //       }), _ => console.log(this.state))
-  //     })
-  // }
 
   render () {
     return (

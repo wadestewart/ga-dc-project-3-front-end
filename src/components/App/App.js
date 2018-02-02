@@ -76,16 +76,16 @@ class App extends Component {
   //     })
   // }
 
-  submitPost = (e, inputObj) => {
-    e.preventDefault()
-    inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-    postMovie(inputObj)
-    .then(movies => {
-      this.setState(prevState => ({
-        movies: movies.data
-      }))
-    })
-  }
+  // submitPost = (e, inputObj) => {
+  //   e.preventDefault()
+  //   inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+  //   postMovie(inputObj)
+  //   .then(movies => {
+  //     this.setState(prevState => ({
+  //       movies: movies.data
+  //     }))
+  //   })
+  // }
 
   // submitDelete = (e, inputObj) => {
   //   e.preventDefault()
