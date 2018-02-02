@@ -125,6 +125,8 @@ class App extends Component {
                 resetMatch={this.resetMatch}
                 matchId={this.state.matchId}
                 getMovie={getMovie}
+                submitUpdate={this.submitUpdate}
+                submitDelete={this.submitDelete}
               />
               </div>
               
