@@ -144,14 +144,15 @@ class App extends Component {
           />
 
           {/* /movies/results */}
-          {/* <Route
+          <Route
             path='/movies/results'
             render={(props) => (
               <MoviesAll
                 {...props}
+                setMoviesState={this.setMoviesState}
               />
             )}
-          /> */}
+          />
 
           {/* /* */}
           {/* <Route
