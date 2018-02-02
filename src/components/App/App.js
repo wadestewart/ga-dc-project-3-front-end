@@ -23,27 +23,36 @@ import './App.css'
 
 class App extends Component {
   state = {
-    searchInput: '',
     movies: [],
     providers: [],
+    searchInput: '',
+    isMatch: false,
     matchId: ''
   }
 
-  handleSearchInput = (e) => {
+  resetMatch = _ => {
+    this.setState({
+      searchInput: '',
+      isMatch: false,
+      matchId: ''
+    })
+  }
+
+  handleSearchInput = e => {
     this.setState({
       searchInput: e.target.value,
     }) 
   }
 
-  submitSearch = (e) => {
+  submitSearch = e => {
     e.preventDefault()
-    console.log(this.state)
     let searchMovieIndex = this.state.movies.findIndex(movie => {
       return movie.name === this.state.searchInput
     })
 
     if (searchMovieIndex !== -1) {
       this.setState(prevState => ({
+        isMatch: true,
         matchId: this.state.movies[searchMovieIndex]._id
       }), _ => console.log(this.state))
     }
@@ -56,7 +65,10 @@ class App extends Component {
       .then(movies => {
         this.setState(prevState => ({
           movies: movies.data
-        }), _ => console.log(this.state))
+        }), _ => {
+          console.log(this.state)
+          this.forceUpdate()
+        })
       })
   }
 
@@ -82,6 +94,7 @@ class App extends Component {
   }
 
   componentDidMount () {
+    console.log(this.state)
     getMovies()
       .then(movies => {
         getProviders()
@@ -98,24 +111,23 @@ class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <SearchMovie
-          handleSearchInput={this.handleSearchInput}
-          submitSearch={this.submitSearch}
-        />
-        <Link to='/movies/results'>All Movies</Link>
-        {this.state.matchId &&
-          <Redirect to={`/movies/results/${this.state.matchId}`} />
-        }
         <Switch>
           {/* /movies/results/:id */}
           <Route
             path='/movies/results/:id'
             render={(props) => (
-              <MovieSingle
-                {...props}
-                movieData={this.state.movies.find(movie => (movie._id === this.state.matchId))
+              <div>
+                {this.state.isMatch &&
+                  <Redirect to={`/movies/results/${this.state.matchId}`} />
                 }
+                <MovieSingle
+                {...props}
+                resetMatch={this.resetMatch}
+                matchId={this.state.matchId}
+                getMovie={getMovie}
               />
+              </div>
+              
             )}
           />
 
@@ -149,6 +161,21 @@ class App extends Component {
           /> */}
 
           {/* / */}
+          <Route
+            path='/'
+            render={(props) => (
+              <div>
+                <SearchMovie
+                  handleSearchInput={this.handleSearchInput}
+                  submitSearch={this.submitSearch}
+                />
+                <Link to='/movies/results'>All Movies</Link>
+                {this.state.isMatch &&
+                  <Redirect to={`/movies/results/${this.state.matchId}`} />
+                }
+              </div>
+            )}
+          />
         </Switch>
       </div>
     )
