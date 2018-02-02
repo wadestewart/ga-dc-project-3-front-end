@@ -54,19 +54,25 @@ class App extends Component {
   //   }
   // }
 
-  submitUpdate = (e, inputObj) => {
-    e.preventDefault()
-    inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
-    updateMovie(inputObj)
-      .then(movies => {
-        this.setState(prevState => ({
-          movies: movies.data
-        }), _ => {
-          console.log(this.state)
-          this.forceUpdate()
-        })
-      })
+  setMoviesState = (newMovies) => {
+    this.setState(prevState => ({
+      movies: newMovies
+    }), _ => console.log(this.state))
   }
+
+  // submitUpdate = (e, inputObj) => {
+  //   e.preventDefault()
+  //   inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+  //   updateMovie(inputObj)
+  //     .then(movies => {
+  //       this.setState(prevState => ({
+  //         movies: movies.data
+  //       }), _ => {
+  //         console.log(this.state)
+  //         this.forceUpdate()
+  //       })
+  //     })
+  // }
 
   submitPost = (e, inputObj) => {
     e.preventDefault()
@@ -79,15 +85,15 @@ class App extends Component {
     })
   }
 
-  submitDelete = (e, inputObj) => {
-    e.preventDefault()
-    deleteMovie(inputObj)
-    .then(movies => {
-      this.setState(prevState => ({
-        movies: movies.data
-      }))
-    })
-  }
+  // submitDelete = (e, inputObj) => {
+  //   e.preventDefault()
+  //   deleteMovie(inputObj)
+  //   .then(movies => {
+  //     this.setState(prevState => ({
+  //       movies: movies.data
+  //     }))
+  //   })
+  // }
 
   // componentDidMount () {
   //   console.log(this.state)
@@ -118,23 +124,21 @@ class App extends Component {
       <div className='App'>
         <Switch>
           {/* /movies/results/:id */}
-          {/* <Route
+          <Route
             path='/movies/results/:id'
             render={(props) => (
               <div>
-                {this.state.isMatch &&
-                  <Redirect to={`/movies/results/${this.state.matchId}`} />
-                }
                 <MovieSingle
                 {...props}
                 // getMovie={getMovie}
                 // submitUpdate={this.submitUpdate}
                 // submitDelete={this.submitDelete}
+                setMoviesState={this.setMoviesState}
               />
               </div>
               
             )}
-          /> */}
+          />
 
           {/* /movies/results */}
           {/* <Route
@@ -159,8 +163,7 @@ class App extends Component {
               <div>
                 <Header />
                 <SearchMovie 
-                {...props}
-                movie={this.state.movies}
+                  {...props}
                 />
                 <Link to='/movies/results'>All Movies</Link>
                 {/* {this.state.isMatch &&

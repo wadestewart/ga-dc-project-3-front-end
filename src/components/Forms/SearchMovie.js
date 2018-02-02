@@ -7,14 +7,12 @@ class SearchMovie extends Component {
   state = {
     movies: [],
     searchInput: '',
-    isMatch: false,
     matchId: ''
   }
 
   resetMatch = _ => {
     this.setState({
       searchInput: '',
-      isMatch: false,
       matchId: ''
     })
   }
@@ -33,10 +31,13 @@ class SearchMovie extends Component {
 
     if (searchMovieIndex !== -1) {
       this.setState(prevState => ({
-        isMatch: true,
         matchId: this.state.movies[searchMovieIndex]._id
-      }), _ => console.log(this.state))
-    }
+      }), _ => {
+        // console.log(this.state)
+        // console.log(`/movies/results/${this.state.matchId}`)
+        this.props.history.push(`/movies/results/${this.state.matchId}`)
+      })
+    } else { console.log('no match') }
   }
 
   componentDidMount () {
