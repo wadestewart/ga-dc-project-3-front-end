@@ -8,7 +8,7 @@ const MovieAll = ({ moviesData }) => {
     )
   })
   return (
-    <div className='container-result'>
+    <div className='container-result center'>
       {movies}
     </div>
   )

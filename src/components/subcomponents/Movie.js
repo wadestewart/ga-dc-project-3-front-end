@@ -4,17 +4,17 @@ const Movie = ({ movieData }) => {
   let providers = movieData.providers.map((provider, index) => {
     return (
       <div className='provider' key={index}>
-        <p>{provider.name}</p>
+        <h3>{provider.name}</h3>
       </div>
     )
   })
 
   return (
     <div className='container-movie'>
-      <p><strong>Name: </strong>{movieData.name}</p>
-      <p><strong>Year: </strong>{movieData.year}</p>
+      <h2><strong></strong>{movieData.name}</h2>
+      <h2><strong></strong>{movieData.year}</h2>
       <div className='container-providers'>
-        <h2>Providers</h2>
+        <h5>Providers</h5>
         {providers}
       </div>
     </div>
