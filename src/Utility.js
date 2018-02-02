@@ -26,12 +26,13 @@ export function postMovie (data) {
   }
 
   return axios
-    .post(API, payload)
+    .post(MOVIES_ENDPOINT, payload)
     .then(res => (res))
 }
 
 export function getMovie (data) {
   let url = MOVIES_ENDPOINT + '/' + data.movieId
+
   return axios
     .get(url)
     .then(res => (res))
