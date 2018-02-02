@@ -47,7 +47,7 @@ class MovieSingle extends Component {
           />
         </div>
         }
-        <button onClick={this.handleBack}>Back</button>
+        <button className="center btn waves-effect waves-light red color black" onClick={this.handleBack}>Back</button>
       </div>
     )
   }

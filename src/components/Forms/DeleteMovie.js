@@ -17,7 +17,7 @@ class DeleteMovie extends Component {
   render () {
     return (
       <div className='deleteButton center'>
-        <button className=' center btn waves-effect waves-light' value='Delete' onClick={(e) => {
+        <button className='center btn waves-effect waves-light red color black' value='Delete' onClick={(e) => {
           e.preventDefault()
           this.submitDelete({movieId: this.props.movieId})
         }}>

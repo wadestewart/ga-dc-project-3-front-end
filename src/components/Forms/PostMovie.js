@@ -35,10 +35,10 @@ class PostMovie extends Component {
               e.preventDefault()
               this.submitPost(this.state)
             }}>
-              <input className="center" type="text" name="nameInput" placeholder="Name" onChange={e => this.handleInput(e, 'nameInput')} />
+              <input className="center red color black" type="text" name="nameInput" placeholder="Name" onChange={e => this.handleInput(e, 'nameInput')} />
               <input className="center" type="text" name="yearInput" placeholder="Year" onChange={e => this.handleInput(e, 'yearInput')} />
               <input className="center" type="text" name="providersInput" placeholder="Provider" onChange={e => this.handleInput(e, 'providersInput')} />
-              <input className=" center btn waves-effect waves-light red accent-4" type="submit" value="Add Movie" />
+              <input className=" center btn waves-effect waves-light red color black" type="submit" value="Add Movie" />
           </form>
         </div>
         )

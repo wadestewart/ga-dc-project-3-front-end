@@ -41,7 +41,7 @@ class MoviesAll extends Component {
           {...this.props}
           setMovieState={this.props.setMovieState}
         />
-        <button onClick={this.handleBack}>Back</button>
+        <button className="center btn waves-effect waves-light red color black" onClick={this.handleBack}>Back</button>
       </div>
     )
   }

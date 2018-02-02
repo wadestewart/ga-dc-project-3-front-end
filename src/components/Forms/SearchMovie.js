@@ -62,7 +62,7 @@ class SearchMovie extends Component {
           placeholder='Search for Movie'
           onChange={this.handleSearchInput}
         />
-        <input className="center btn waves-effect waves-light" type="submit" value="Search" />
+        <input className="center btn waves-effect waves-light red color black" type="submit" value="Search" />
       </form>
     )
   }

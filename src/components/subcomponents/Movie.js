@@ -11,11 +11,12 @@ const Movie = ({ movieData }) => {
 
   return (
     <div className='container-movie'>
-      <p><strong>Name: </strong>{movieData.name}</p>
-      <p><strong>Year: </strong>{movieData.year}</p>
-      <div className='container-providers'>
-        <h2>Providers</h2>
-        {providers}
+      <h3 className='center'><strong>{movieData.name}</strong></h3>
+      <h3 className='center'><strong>{movieData.year}</strong></h3>
+      <div className='container-providers center '>
+        <p className="center">Providers</p>
+        <h5>{providers}</h5>
+        <hr />
       </div>
     </div>
   )

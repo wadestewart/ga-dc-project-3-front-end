@@ -51,7 +51,7 @@ class UpdateMovie extends Component {
                     <input className="center" type="text" name="nameInput" placeholder="Name" value={this.state.nameInput} onChange={e => this.handleInput(e, 'nameInput')} />
                     <input className="center" type="text" name="yearInput" placeholder="Year" value={this.state.yearInput} onChange={e => this.handleInput(e, 'yearInput')} />
                     <input className="center" type="text" name="providersInput" placeholder="Provider" value={this.state.providersInput} onChange={e => this.handleInput(e, 'providersInput')} />
-                    <input className="center btn waves-effect waves-light" type="submit" value="Edit Movie" />
+                    <input className="center btn waves-effect waves-light red color black" type="submit" value="Edit Movie" />
                 </form>
               </div>
             }
