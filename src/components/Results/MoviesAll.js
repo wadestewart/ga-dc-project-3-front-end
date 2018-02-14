@@ -17,17 +17,15 @@ class MoviesAll extends Component {
 
   componentDidMount () {
     getMovies()
-      .then(movies => {
-        this.setState(prevState => ({
-          movies: movies.data,
-        })) // might remove these console.logs in 'production'/master branch
-      })
+      // 
+      .then(movies => this.setState(prevState => ({movies: movies.data})))
+        // might remove these console.logs in 'production'/master branch
   }
 
   render () {
     let movies
 
-    if (this.state.movies) { //If you make movies an empty array, you won't have to perform this erorr checking here
+    if (this.state.movies) { //If you make movies an empty array, you won't have to perform this error checking here
       movies = this.state.movies.map((movie, index) => (<Movie movieData={movie} key={index} />))
     }
 
