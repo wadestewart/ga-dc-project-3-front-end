@@ -39,6 +39,7 @@ class UpdateMovie extends Component {
             <h4 className="center">Edit a Movie!</h4>
             {this.state.nameInput &&
               <div>
+              {/* I would recommend defining this submit-handler function as a method on the component, to separate your display logic from your 'business logic' */}
                 <form className="center" onSubmit={(e) => {
                   e.preventDefault()
                   this.submitUpdate({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Movie from '../subcomponents/Movie'
+import Movie from '../Subcomponents/Movie'
 import UpdateMovie from '../Forms/UpdateMovie'
 import DeleteMovie from '../Forms/DeleteMovie'
 import {

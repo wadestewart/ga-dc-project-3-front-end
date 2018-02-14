@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class FormCheckbox extends Component {
   state = {
-    isChecked: undefined
+    isChecked: undefined // null is a better initial value since it won't be a default value in JavaScript. This is mainly important because mistyped/valueless properties will be undefined with an object.
   }
 
   handleCheck = (e) => {

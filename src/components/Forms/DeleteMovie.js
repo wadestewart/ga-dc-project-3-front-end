@@ -3,7 +3,7 @@ import {
   deleteMovie
 } from '../../Utility'
 
-class DeleteMovie extends Component {
+class DeleteMovie extends Component { // might call this DeleteMovieButton, since it is a little more concrete in terms of a part of a UI
   state = {}
 
   submitDelete = (inputObj) => {

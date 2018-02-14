@@ -7,10 +7,15 @@
 !["ERD"](<https://github.com/wadestewart/ga-dc-project-3-front-end/blob/feature-init/image%20(1).png?raw=true> 'ERD')
 
 Our user story would be a user who wants to know if a movie is available on the major streaming services. They come to our app and are presented with a search field and button (pretty much the Google UI - if it aint broke). This field will have a placeholder for "movie name," once a name is submitted a results page will appear with movie providers that are streaming the searched movie.
+<!-- This definition of a user story is more intuitive, but in web development the definition is a little more specific. We did't spend much time with user stories, so don't feel bad. The user story is actually pretty granualar and takes the following format:
 
+I want to be able to do [insert thing here] so I can have [insert experience here]
+
+A really generic social media example might be, "I want to be to post to my feed so that my friends can see what I'm up to."-->
 There will also be a header with the app name and a navbar. The navbar will have a "create" link for users to create a movie. The user will have the ability to update and delete a movie in the database.
 
 
+<!-- Awesome use of gh markdown checkbox feature -->
 ### MVP:
     1. Back End:
         [X]i. Node, Express, Mongoose
@@ -62,6 +67,3 @@ Have MVP completed - high five🙌
 ### Bonus: 
 
 - Add pop-up message after post/create feature with refresh.
-
-
-
