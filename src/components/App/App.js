@@ -25,6 +25,8 @@ class App extends Component {
     movies: []
   }
 
+  // would remove commented out code
+
   // resetMatch = _ => {
   //   this.setState({
   //     searchInput: '',

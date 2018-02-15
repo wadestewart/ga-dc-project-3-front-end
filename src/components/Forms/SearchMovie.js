@@ -37,7 +37,7 @@ class SearchMovie extends Component {
         // console.log(`/movies/results/${this.state.matchId}`)
         this.props.history.push(`/movies/results/${this.state.matchId}`)
       })
-    } else { console.log('no match') }
+    } else { console.log('no match') } //would render this message to the DOM
   }
 
   componentDidMount () {

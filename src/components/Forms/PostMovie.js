@@ -12,15 +12,18 @@ class PostMovie extends Component {
 
     handleInput = (e, inputType) => {
         let updateObj = {}
+        // you can use [e.target.name] as well
+        // https://reactjs.org/docs/forms.html#handling-multiple-inputs
         updateObj[inputType] = e.target.value
         this.setState(prevState => (updateObj), _ => console.log(this.state))
     }
 
     submitPost = (inputObj) => {
       inputObj.providersInput = inputObj.providersInput.split(',').map(provider => provider.trim())
+
       postMovie(inputObj)
         .then(_ => {
-          this.props.setMoviesState()
+          this.props.setMoviesState() // rather than 
           this.props.history.push('/')
         })
     }

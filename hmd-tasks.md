@@ -6,3 +6,6 @@
 - [ ] fix redirects and rendering to reflect updates and posts
 - [ ] adjust providers array utility function to handle invalid/empty strings (BACK END)
 - [ ] move Provider component to `src/components/subcomponents`
+
+
+<!-- Check out Trello for task tracking -->

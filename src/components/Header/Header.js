@@ -14,7 +14,8 @@ class Header extends Component {
       <SearchMovie
         {...this.props}
       />
-      <Link className="center btn waves-effect waves-light red color black" to='/movies/results'>All Movies</Link>
+      {/* React style guide recommends using ""s for components  */}
+      <Link className="center btn waves-effect waves-light red color black" to="/movies/results">All Movies</Link>
     </div>
     )
   }

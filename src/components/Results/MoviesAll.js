@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Movie from '../subcomponents/Movie'
+import Movie from '../Subcomponents/Movie'
 import PostMovie from '../Forms/PostMovie'
 import {
   getMovies
@@ -7,31 +7,26 @@ import {
 
 class MoviesAll extends Component {
   state = {
-    movies: undefined
+    movies: undefined //i'd use []
   }
 
   handleBack = _ => {
     this.props.history.push('/')
+    // back should be this.props.history.pop()
   }
 
   componentDidMount () {
     getMovies()
-      .then(movies => {
-        this.setState(prevState => ({
-          movies: movies.data,
-        }), _ => console.log(this.state))
-      })
+      // 
+      .then(movies => this.setState(prevState => ({movies: movies.data})))
+        // might remove these console.logs in 'production'/master branch
   }
 
   render () {
     let movies
 
-    if (this.state.movies) {
-      movies = this.state.movies.map((movie, index) => {
-        return (
-          <Movie movieData={movie} key={index} />
-        )
-      })
+    if (this.state.movies) { //If you make movies an empty array, you won't have to perform this error checking here
+      movies = this.state.movies.map((movie, index) => (<Movie movieData={movie} key={index} />))
     }
 
     return (
